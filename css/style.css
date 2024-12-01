@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -8496,7 +8496,7 @@ header {
 
       
 .hero-wrap {
-   background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDJ1ZzV4ZWNvMzc0M2kxeG15dGs2cGh4aTJvYXd1OXpycjdseW51byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VZMpNh76chgRO/giphy.webp);
+   background-image: url(hm.webp);
    background-size: cover; 
    background-repeat: no-repeat; 
    background-attachment: fixed; 
