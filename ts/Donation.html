@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to QR Code Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #qrcode {
+            margin-top: 20px;
+            display: flex;
+             justify-content: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <h1 id="text"></h1>
+    <div class="container">
+        <div id="qrcode"></div>
+    </div>
+
+    <script>
+         window.onload = function() {
+            generateQRCode()
+        }
+        function generateQRCode() {
+            var inputText = localStorage.getItem('sharedData');
+            var inputText1 = localStorage.getItem('sharedData1');
+            var qrcodeContainer = document.getElementById("qrcode");
+            var textContainer = document.getElementById("text");
+            let words = inputText1.split(',')
+            textContainer.innerHTML = `Hi ${words[0]}, scan this to donate. The amount you want to pay is ${words[1]}rs.`;
+            qrcodeContainer.innerHTML = ""; // Clear previous QR code
+            new QRCode(qrcodeContainer, {
+                text: inputText,
+                width: 256,
+                height: 256
+            });
+            
+        }
+    </script>
+</body>
+</html>
