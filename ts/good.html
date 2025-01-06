@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Display</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Data Display</h2>
+
+<table id="data-table">
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be inserted here by JavaScript -->
+    </tbody>
+</table>
+
+<script>
+    fetch('https://script.googleusercontent.com/macros/echo?user_content_key=rTbT7TKJNQiO7h5bnm95j1FQMANExbBJ7KSJXzPg0l1_fPbSc2e8epZGxb94dqf_1lly5QR6BHKme_tZpRLUZ2a0hJ5a7cVGm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNy0Y4ioU8npecVv8XY-HZdpV4IGjgP5KxtDNonO6O17LrGtYB6UImGfESn8gORCiVIIcWKsY1D4O8t5d2jcJkg59cJ163hFhtz9Jw9Md8uu&lib=MMwnJTJ4J9LppTo3-O_R0WR5gTy072CVV')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tableBody = document.querySelector("#data-table tbody");
+            Object.keys(data).forEach(key => {
+                const row = document.createElement('tr');
+                const keyCell = document.createElement('td');
+                keyCell.textContent = key;
+                const valueCell = document.createElement('td');
+                valueCell.textContent = data[key];
+                row.appendChild(keyCell);
+                row.appendChild(valueCell);
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+</script>
+
+</body>
+</html>
