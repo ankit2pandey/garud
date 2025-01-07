@@ -5,19 +5,19 @@
 <!doctype html>
 <html lang="en">
   <head style="overflow: hidden;">
-  	<title>Register</title>
+        <title>Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="contact.css">
 
-    <script> function passData(event) { event.preventDefault(); 
+    <script> function passData(event) { event.preventDefault();
     alert('Please wait, data is sending. And you get a new message.');
      const form = document.getElementById('myForm');
       const formData = new FormData(form);
@@ -26,18 +26,21 @@
 
         }).catch(error => { console.error('Error:', error);
          alert('Failed to send data.'); }); } </script>
-	</head>
-	<body>
-	
-	<div class="page" style="height: 100px;">
+        </head>
+        <body>
+
+        <div class="page" style="height: 100px;">
     <nav id="colorlib-main-nav" role="navigation">
       <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
       <div class="js-fullheight colorlib-table">
         <div class="img" style="background-image: url(images/bg_3.jpg);"></div>
         <div class="colorlib-table-cell js-fullheight">
           <div class="row no-gutters">
-            <div class="col-md-12 text-center">  
-              <h1 class="mb-4"><a href="index.html" class="logo">garud</a></h1>
+            <div class="col-md-12 text-center">
+              <h1 class="mb-4">
+                <a href="index.html" class="logo">
+                   <img src="/images/logo.png" alt="Garud Logo" /></a>
+                  </h1>
               <ul>
                 <li ><a href="index.html"><span>Home</span></a></li>
                 <li><a href="about.html"><span>About</span></a></li>
@@ -50,14 +53,14 @@
         </div>
       </div>
     </nav>
-    
+
     <div id="colorlib-page">
       <header>
-      	<div class="container">
-	        <div class="colorlib-navbar-brand">
-	          <a class="colorlib-logo" href="index.html">garud</a>
-	        </div>
-	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        <div class="container">
+                <div class="colorlib-navbar-brand">
+                  <a class="colorlib-logo" href="index.html"> <img src="images/logo.png" alt="Garud Logo" class="logo-image" /> </a>
+                </div>
+                <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
         </div>
       </header>
     </div>
@@ -67,62 +70,76 @@
           <div></div>
           <img id="postcard" src="/images/postcard for Garud team Invertis University FKDC Season 9 2025 racing team.png" alt="postcard" class="img-responsive move">
           <div id="content" >
+            <h1 class="mb-4">
+              <a>
+                <img src="/images/logo.png" alt="Garud Logo" style="width: -webkit-fill-available;height: -webkit-fill-available;margin-top: -71px;margin-bottom: -74px;">
+                </h1>
               <h1> Register </h1>
 
               <form id="myForm" role="form" method="POST" action="https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec" onsubmit="passData(event)">
                   <div class="form-group">
-                      <label for="username" class="iconic user" > Name <span class="required">*</span></label>
+                      <label for="username"  > Name <span class="required">*</span></label>
                       <input type="text" class="form-control" name="Name" id="username"  required="required" placeholder="Hi friend, how may I call you ?">
                   </div>
                   <div class="form-group">
-                    <label for="subject" class="iconic quote-alt"> Course <span class="required">*</span></label>
+                    <label for="subject"  > Course <span class="required">*</span></label>
                     <input type="text" class="form-control" name="Course" id="subject"  required="required" placeholder="Course">
                 </div>
                 <div class="form-group">
-                  <label for="subject" class="iconic quote-alt"> ID <span class="required">*</span></label>
+                  <label for="subject"  > ID <span class="required">*</span></label>
                   <input type="text" class="form-control" name="ID" id="subject"  required="required" placeholder="ID">
               </div>
               <div class="form-group">
-                <label for="subject" class="iconic quote-alt"> Year <span class="required">*</span></label>
+                <label for="subject"  > Year <span class="required">*</span></label>
                 <input type="text" class="form-control" name="Year" id="subject"  required="required" placeholder="Year">
             </div>
                   <div class="form-group">
-                      <label for="usermail" class="iconic mail-alt"> E-mail address <span class="required">*</span></label> 
+                      <label for="usermail" > E-mail address <span class="required">*</span></label>
                       <input type="email" class="form-control" name="email" id="usermail" placeholder="I promise I hate spam as much as you do" required="required">
                   </div>
                   <div class="form-group">
-                      <label for="subject" class="iconic quote-alt"> Address <span class="required">*</span></label>
+                      <label for="subject"  > Address <span class="required">*</span></label>
                       <input type="text" class="form-control" name="subject" id="subject"  required="required" placeholder="a">
                   </div>
-                  
+
                   <div class="form-group">
-                    <label for="subject" class="iconic quote-alt"> Phone number <span class="required">*</span></label>
+                    <label for="subject"  > Phone number <span class="required">*</span></label>
                     <input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="form-control" name="Phone number" id="subject"  required="required" placeholder="Phone number">
                 </div>
-                  <div class="form-group">
-                      <label for="message" class="iconic comment"> Message </label>
-                      <textarea name="message" id="message"  class="form-control" rows="3" placeholder="Don't be shy, live me a friendly message and I'll answer as soon as possible"  required="required"></textarea>
-                  </div>
-              
+                <div class="form-group">
+                   <label for="media">Domain <span class="required">*</span></label>
+                    <div id="media">
+                       <div>
+                         <input type="radio" id="option1" name="media_option" value="ev" required>
+                          <label for="option1">ev</label>
+                         </div>
+                          <div>
+                             <input type="radio" id="option2" name="media_option" value="combustion" required>
+                              <label for="option2">combustion</label>
+                             </div>
+                             <div>
+                              <input type="radio" id="option2" name="media_option" value="non technical" required>
+                               <label for="option2">non technical</label>
+                              </div>
+                               </div>
                   <input type="submit" value=" ★ Send the mail !" onclick="passData(); return false;"/>
-                    
+
               </form>
           </div>
       </div>
   </div>
   </div>
- 
 
-   
 
-	<script src="js/jquery.min.js">
- 
+
+
+        <script src="js/jquery.min.js">
+
 
   </script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
 
-	</body>
+        </body>
 </html>
-
