@@ -5,57 +5,52 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+        .card h2 {
+            margin-top: 0;
         }
-        th {
-            background-color: #f2f2f2;
+        .card p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <h1>Data from SheetDB</h1>
-    <table id="data-table">
-        
-        <tbody>
-            <!-- Data will be populated here -->
-        </tbody>
-    </table>
+    <div id="cards-container"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('https://sheetdb.io/api/v1/nkjaelg6umt9i')
                 .then(response => response.json())
                 .then(data => {
-                    const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+                    const cardsContainer = document.getElementById('cards-container');
                     data.forEach(row => {
-                        const newRow = tableBody.insertRow();
-                        const cellName = newRow.insertCell(0);
-                        const cellCourse = newRow.insertCell(1);
-                        const cellID = newRow.insertCell(2);
-                        const cellYear = newRow.insertCell(3);
-                        const cellEmail = newRow.insertCell(4);
-                        const cellSubject = newRow.insertCell(5);
-                        const cellPhone = newRow.insertCell(6);
-                        const cellMessage = newRow.insertCell(7);
-                        const cellMedia = newRow.insertCell(8);
+                        const card = document.createElement('div');
+                        card.className = 'card';
                         
-                        cellName.textContent = row.Name;
-                        cellCourse.textContent = row.Course;
-                        cellID.textContent = row.ID;
-                        cellYear.textContent = row.Year;
-                        cellEmail.textContent = row.email;
-                        cellSubject.textContent = row.subject;
-                        cellPhone.textContent = row["Phone number"];
-                        cellMessage.textContent = row.message;
-                        cellMedia.textContent = row.media_option;
+                        card.innerHTML = `
+                            <h2>${row.Name}</h2>
+                            <p><strong>Course:</strong> ${row.Course}</p>
+                            <p><strong>ID:</strong> ${row.ID}</p>
+                            <p><strong>Year:</strong> ${row.Year}</p>
+                            <p><strong>Email:</strong> ${row.email}</p>
+                            <p><strong>Subject:</strong> ${row.subject}</p>
+                            <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
+                            <p><strong>Message:</strong> ${row.message}</p>
+                            <p><strong>Media option:</strong> ${row.media_option}</p>
+                        `;
+                        
+                        cardsContainer.appendChild(card);
                     });
                 })
                 .catch(error => console.error('Error fetching data:', error));
