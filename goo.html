@@ -16,12 +16,18 @@
             margin: 10px;
             width: 300px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         .card h2 {
             margin-top: 0;
         }
         .card p {
             margin: 5px 0;
+        }
+        .card input[type="checkbox"] {
+            position: absolute;
+            top: 15px;
+            right: 15px;
         }
     </style>
 </head>
@@ -48,7 +54,27 @@
                             <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
                             <p><strong>Message:</strong> ${row.message}</p>
                             <p><strong>Media option:</strong> ${row.media_option}</p>
+                            <input type="checkbox" ${row.checked ? 'checked' : ''}>
                         `;
+                        
+                        const checkbox = card.querySelector('input[type="checkbox"]');
+                        checkbox.addEventListener('change', function() {
+                            const updatedValue = checkbox.checked;
+                            fetch(`https://sheetdb.io/api/v1/nkjaelg6umt9i/id/${row.id}`, {
+                                method: 'PATCH',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    data: { checked: updatedValue }
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Data updated:', data);
+                            })
+                            .catch(error => console.error('Error updating data:', error));
+                        });
                         
                         cardsContainer.appendChild(card);
                     });
