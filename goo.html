@@ -1,54 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>SheetDB API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <form onsubmit="saveCredentials(event)">
-        <label for="login-username">Username:</label>
-        <input type="text" id="login-username" required>
-        <br>
-        <label for="login-password">Password:</label>
-        <input type="password" id="login-password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    <h1>Data from SheetDB</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
 
     <script>
-        async function saveCredentials(event) {
-            event.preventDefault();
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-
-            const data = {
-                "data": {
-                    "username": username,
-                    "password": password
-                }
-            };
-
-            const response = await fetch('https://sheetdb.io/api/v1/nkjaelg6umt9i', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                if (username === 'ankit2pandey' && password === 'ankit@0987') {
-                    window.location.href = 'goo.html';
-                } else {
-                    localStorage.setItem('username', username);
-                    localStorage.setItem('password', password);
-                    window.location.href = '404.html';
-                }
-            } else {
-                console.error('Error:', response.statusText);
-            }
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://sheetdb.io/api/v1/nkjaelg6umt9i')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+                    data.forEach(row => {
+                        const newRow = tableBody.insertRow();
+                        const cell1 = newRow.insertCell(0);
+                        const cell2 = newRow.insertCell(1);
+                        cell1.textContent = row.column1;
+                        cell2.textContent = row.column2;
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
     </script>
 </body>
 </html>
