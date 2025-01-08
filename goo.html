@@ -54,12 +54,13 @@
                             <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
                             <p><strong>Message:</strong> ${row.message}</p>
                             <p><strong>Media option:</strong> ${row.media_option}</p>
-                            <input type="checkbox" ${row.checked ? 'checked' : ''}>
+<p><strong>checked:</strong> ${row.checked}</p>
+                            <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
                         `;
                         
                         const checkbox = card.querySelector('input[type="checkbox"]');
                         checkbox.addEventListener('change', function() {
-                            const updatedValue = checkbox.checked;
+                            const updatedValue = checkbox.checked ? 1 : 0;
                             fetch(`https://sheetdb.io/api/v1/nkjaelg6umt9i/id/${row.id}`, {
                                 method: 'PATCH',
                                 headers: {
