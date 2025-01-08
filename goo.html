@@ -28,6 +28,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
+<<<<<<< HEAD
         }
         .card.red { background-color: #ffcccc; } 
         .card.green { background-color: #ccffcc; }
@@ -41,15 +42,20 @@
             width: 300px;
             padding: 10px;
             font-size: 16px;
+=======
+>>>>>>> 7897d6b085cbfce38cb9edf720ddd9664cfc4a99
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="search-container">
     <input type="text" id="search-box" placeholder="Search by any field">
    
         
     </div>
+=======
+>>>>>>> 7897d6b085cbfce38cb9edf720ddd9664cfc4a99
     <div id="cards-container"></div>
 
     <script>
@@ -58,6 +64,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const cardsContainer = document.getElementById('cards-container');
+<<<<<<< HEAD
                     const searchBox = document.getElementById('search-box');
 
                     function createCard(row) {
@@ -131,6 +138,49 @@
                     console.error('Error fetching data:', error);
                     alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
                 });
+=======
+                    data.forEach(row => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        
+                        card.innerHTML = `
+                            <h2>${row.Name}</h2>
+                            <p><strong>Course:</strong> ${row.Course}</p>
+                            <p><strong>ID:</strong> ${row.ID}</p>
+                            <p><strong>Year:</strong> ${row.Year}</p>
+                            <p><strong>Email:</strong> ${row.email}</p>
+                            <p><strong>Subject:</strong> ${row.subject}</p>
+                            <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
+                            <p><strong>Message:</strong> ${row.message}</p>
+                            <p><strong>Media option:</strong> ${row.media_option}</p>
+<p><strong>checked:</strong> ${row.checked}</p>
+                            <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
+                        `;
+                        
+                        const checkbox = card.querySelector('input[type="checkbox"]');
+                        checkbox.addEventListener('change', function() {
+                            const updatedValue = checkbox.checked ? 1 : 0;
+                            fetch(`https://sheetdb.io/api/v1/nkjaelg6umt9i/id/${row.id}`, {
+                                method: 'PATCH',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    data: { checked: updatedValue }
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Data updated:', data);
+                            })
+                            .catch(error => console.error('Error updating data:', error));
+                        });
+                        
+                        cardsContainer.appendChild(card);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+>>>>>>> 7897d6b085cbfce38cb9edf720ddd9664cfc4a99
         });
     </script>
 </body>
