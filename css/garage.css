@@ -1,0 +1,26 @@
+
+.garage-ap1{
+    
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+}
+.garage-ap1-box1{
+    width: -webkit-fill-available;
+    height: 900px;
+    text-align: center;
+    background-color: brown;
+}
+.garage-ap1-box2{
+    width: -webkit-fill-available;
+    height: 900px;
+    text-align: center;
+    background-color: rgb(97, 42, 165);
+}
+.garage-ap1-box3{
+    width: -webkit-fill-available;
+    height: 900px;
+    text-align: center;
+    background-color: rgb(42, 165, 81);
+}
