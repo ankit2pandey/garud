@@ -1,106 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage with Title Image</title>
+    <title>SheetDB API Example</title>
     <style>
-        .header {
+        body {
+            font-family: Arial, sans-serif;
             display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #000;
-            color: white;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-
-        .header-image {
-            height: 50px; /* Adjust the height as needed */
-            width: auto;
-            margin-right: 20px;
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-
-        .header-title {
-            font-size: 24px;
-            font-weight: bold;
+        .card h2 {
+            margin-top: 0;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .card p {
+            margin: 5px 0;
         }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+        .card input[type="checkbox"] {
+            position: absolute;
+            top: 15px;
+            right: 15px;
         }
-
-        footer {
-            background-color: #000;
-            color: white;
+        .card.red { background-color: #ffcccc; } 
+        .card.green { background-color: #ccffcc; }
+     
+        .search-container {
+            width: 100%;
+            margin: 20px 0;
             text-align: center;
-            padding: 10px 0;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
         }
-
-        footer a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-info {
-            margin-top: 10px;
-        }
-
-        .footer-logo {
-            display: inline-block;
-            margin: 10px 0;
-            animation: spin 5s linear infinite;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            width: auto;
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
+    <div class="search-container">
+    <input type="text" id="search-box" placeholder="Search by any field">
    
-
-    <div class="content">
-        <!-- Your main content goes here -->
+        
     </div>
-    <script src="https://sheetdb.io/s/t/0liz6a0wz8xnn.js"></script>
-    <footer>
-        <div class="footer-logo">
-            <img src="./images/logo.png" alt="Team Logo">
-        </div>
-        <p>&copy; 2025 Your Racing Team. All rights reserved.</p>
-        <p>
-            <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
-            <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
-        </p>
-        <div class="contact-info">
-            <p>Contact Us:</p>
-            <p>Email: <a href="mailto:contact@yourracingteam.com">contact@yourracingteam.com</a></p>
-            <p>Phone: +91 96348 53979</p>
-            <p>Address: 1234 Racing Street, Speed City, Country</p>
-        </div>
-        <p>Website made by <a href="https://github.com/ankit2pandey">Ankit2Pandey</a></p>
-    </footer>
-   
+    <div id="cards-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://sheetdb.io/api/v1/nkjaelg6umt9i')
+                .then(response => response.json())
+                .then(data => {
+                    const cardsContainer = document.getElementById('cards-container');
+                    const searchBox = document.getElementById('search-box');
+
+                    function createCard(row) {
+                        if (row.ID) { 
+                            const card = document.createElement('div');
+                            card.className = 'card ' + (row.checked == 1 ? 'green' : 'red');
+                            
+                            card.innerHTML = `
+                                <h2>${row.Name}</h2>
+                                <p><strong>Course:</strong> ${row.Course}</p>
+                                <p><strong>ID:</strong> ${row.ID}</p>
+                                <p><strong>Year:</strong> ${row.Year}</p>
+                                <p><strong>Email:</strong> ${row.email}</p>
+                                <p><strong>Subject:</strong> ${row.subject}</p>
+                                <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
+                                <p><strong>Message:</strong> ${row.message}</p>
+                                <p><strong>Media option:</strong> ${row.media_option}</p>
+                                <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
+                            `;
+
+                            const checkbox = card.querySelector('input[type="checkbox"]');
+                            checkbox.addEventListener('change', function() {
+                                const updatedValue = checkbox.checked ? 1 : 0;
+                                card.className = 'card ' + (updatedValue == 1 ? 'green' : 'red');
+                                console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
+                                fetch(`https://sheetdb.io/api/v1/nkjaelg6umt9i/ID/${row.ID}`, {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({
+                                        data: { checked: updatedValue }
+                                    })
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! Status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    console.log('Data updated:', data);
+                                })
+                                .catch(error => {
+                                    console.error('Error updating data:', error);
+                                    alert('An error occurred while updating the data. Please try again.');
+                                });
+                            });
+
+                            cardsContainer.appendChild(card);
+                        }
+                    }
+
+                    function filterCards(searchTerm) {
+                        cardsContainer.innerHTML = '';
+                        data.forEach(row => {
+                            const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
+                            if (searchString.includes(searchTerm.toLowerCase())) {
+                                createCard(row);
+                            }
+                        });
+                    }
+
+                    data.forEach(createCard);
+
+                    searchBox.addEventListener('input', function() {
+                        filterCards(searchBox.value);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
+                });
+        });
+    </script>
 </body>
 </html>
