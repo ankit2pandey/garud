@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage with Footer</title>
+    <title>Webpage with Title Image</title>
     <style>
-        body {
+        .header {
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f0f0f0;
+            align-items: center;
+            padding: 10px;
+            background-color: #000;
+            color: white;
         }
 
-        .content {
-            flex: 1;
+        .header-image {
+            height: 50px; /* Adjust the height as needed */
+            width: auto;
+            margin-right: 20px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         footer {
@@ -48,29 +74,15 @@
         .footer-logo img {
             height: 50px;
             width: auto;
-            animation: fadeIn 2s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes spin {
-            from {
-                height: 100px;
-            }
-            to {  
-                width: 200px;
-            }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <img src="./images/logo.png" alt="Title Image" class="header-image">
+        <div class="header-title">Your Racing Team</div>
+    </div>
+
     <div class="content">
         <!-- Your main content goes here -->
     </div>
@@ -79,7 +91,7 @@
         <div class="footer-logo">
             <img src="./images/logo.png" alt="Team Logo">
         </div>
-        <p>&copy; 2025 GARUD Team. All rights reserved.</p>
+        <p>&copy; 2025 Your Racing Team. All rights reserved.</p>
         <p>
             <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
             <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
@@ -88,8 +100,7 @@
             <p>Contact Us:</p>
             <p>Email: <a href="mailto:contact@yourracingteam.com">contact@yourracingteam.com</a></p>
             <p>Phone: +91 96348 53979</p>
-            <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
-Bareilly, Uttar Pradesh Pin - 243 123, India</p>
+            <p>Address: 1234 Racing Street, Speed City, Country</p>
         </div>
         <p>Website made by <a href="https://github.com/ankit2pandey">Ankit2Pandey</a></p>
     </footer>
