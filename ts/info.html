@@ -1,10 +1,95 @@
-<div class="text">
-    <article>
-        <p>Uh oh! Looks like you IP is not registered in our database <br>Go back to the homepage if you dare!</p>
-        <a href="login.html"><button id="username" ></button></a>
-        <script>
-            document.getElementById('username').innerText = 'try again '+ localStorage.getItem('username');
-            document.getElementById('password').innerText = 'Password: ' + localStorage.getItem('password');
-        </script>
-    </article>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Data in Cards</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card input {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="cards-container"></div>
+  <script>
+    const apiUrl = 'https://sheet2api.com/v1/IoPm1cvhRVK0/garud';
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('cards-container');
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <p><strong>ID:</strong> ${item.ID}</p>
+            <p><strong>Name:</strong> ${item.Name}</p>
+            <input type="text" value="${item.Name}" />
+            <button onclick="updateValue(${item.ID}, this.previousElementSibling.value)">Update</button>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+
+    function updateValue(id, newValue) {
+      const query_params = new URLSearchParams({
+        'limit': 10,
+        'query_type': 'and',
+        'Name': newValue,  // Use the correct Name here
+        'Course': 'example value',
+        'ID': id,  // Use the correct ID here
+        'Year': 'example value',
+        'email': 'example value',
+        'subject': 'example value',
+        'Phone number': 'example value',
+        'message': 'example value',
+        'media_option': 'example value',
+        'checked': 'example value',
+        'username': 'example value',
+        'password': 'example value'
+      });
+
+      const updateUrl = `${apiUrl}/Sheet1?${query_params}`;
+      const updatedData = {
+        'Name': newValue,
+        'Course': 'example value',
+        'ID': id,  // Use the correct ID here
+        'Year': 'example value',
+        'email': 'example value',
+        'subject': 'example value',
+        'Phone number': 'example value',
+        'message': 'example value',
+        'media_option': 'example value',
+        'checked': 'example value',
+        'username': 'example value',
+        'password': 'example value'
+      };
+
+      fetch(updateUrl, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        alert('Update successful!');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>

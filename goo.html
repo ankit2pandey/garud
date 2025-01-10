@@ -80,40 +80,44 @@
                             `;
 
                             const checkbox = card.querySelector('input[type="checkbox"]');
-                            checkbox.addEventListener('change', function() {
-                                const updatedValue = checkbox.checked ? 1 : 0;
-                                card.className = 'card ' + (updatedValue == 1 ? 'green' : 'red');
-                                console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
-                                fetch(`https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1?${row.ID}`, {
-                                    method: 'PATCH',
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                    },
-                                    body: JSON.stringify({
-                                        data: { checked: updatedValue }
-                                    })
-                                })
-                                .then(response => {
-                                    if (!response.ok) {
-                                        throw new Error(`HTTP error! Status: ${response.status}`);
-                                    }
-                                    return response.json();
-                                })
-                                .then(data => {
-                                    console.log('Data updated:', data);
-                                })
-                                .catch(error => {
-                                    console.error('Error updating data:', error);
-                                    alert('An error occurred while updating the data. Please try again.');
-                                });
-                            });
+checkbox.addEventListener('change', function() {
+    const updatedValue = checkbox.checked ? 1 : 0;
+    card.className = 'card ' + (updatedValue === 1 ? 'green' : 'red');
+    console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
+    
+    fetch(`https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1?ID=${row.ID}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            checked: updatedValue
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Data updated:', data);
+    })
+    .catch(error => {
+        console.error('Error updating data:', error);
+        alert('An error occurred while updating the data. Please try again.');
+    });
+});
+
 
                             cardsContainer.appendChild(card);
                         }
                     }
+                    
 
                     function filterCards(searchTerm) {
                         cardsContainer.innerHTML = '';
+                        
                         data.forEach(row => {
                             const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
                             if (searchString.includes(searchTerm.toLowerCase())) {
@@ -126,6 +130,7 @@
 
                     searchBox.addEventListener('input', function() {
                         filterCards(searchBox.value);
+                        
                     });
                 })
                 .catch(error => {
