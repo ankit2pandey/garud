@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets API Example</title>
+</head>
+<body>
+    <script>
+      const apiKey = 'YOUR_NEW_API_KEY'; // Replace with your new API key
+const spreadsheetId = '1gKbXKPUhJYeLjgSuGRb7sL9T2TewrjkEJiufzcZgFbY';
+const range = 'Sheet1!A1:B2'; // Adjust the range as needed
+
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        // Process the data here
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    </script>
+</body>
+</html>

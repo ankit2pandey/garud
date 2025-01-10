@@ -106,7 +106,19 @@ Bareilly, Uttar Pradesh Pin - 243 123, India</p>
     <p>Website made by <a href="https://github.com/ankit2pandey">Ankit2Pandey</a></p>
 </footer>
   <script>
-  function saveCredentials(event) { event.preventDefault(); const username = document.getElementById('login-username').value; const password = document.getElementById('login-password').value; if (username === 'ankit2pandey' && password === 'ankit@0987') { window.location.href = 'goo.html'; } else { localStorage.setItem('username', username); localStorage.setItem('password', password); window.location.href = '404.html'; } }
+  function saveCredentials(event)
+   { event.preventDefault();
+    const username = document.getElementById('login-username').value;
+     const password = document.getElementById('login-password').value;
+      if (username === 'ankit2pandey' && password === 'ankit@0987') 
+      {
+       window.location.href = 'goo.html';
+        }
+         else
+          {
+           localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+             window.location.href = '404.html'; } }
 </script>
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>

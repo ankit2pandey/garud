@@ -50,11 +50,12 @@
    
         
     </div>
-    <div id="cards-container"></div>
+    <div id="cards-container">
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('https://sheetdb.io/api/v1/nkjaelg6umt9i')
+            fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1')
                 .then(response => response.json())
                 .then(data => {
                     const cardsContainer = document.getElementById('cards-container');
@@ -83,7 +84,7 @@
                                 const updatedValue = checkbox.checked ? 1 : 0;
                                 card.className = 'card ' + (updatedValue == 1 ? 'green' : 'red');
                                 console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
-                                fetch(`https://sheetdb.io/api/v1/nkjaelg6umt9i/ID/${row.ID}`, {
+                                fetch(`https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1?${row.ID}`, {
                                     method: 'PATCH',
                                     headers: {
                                         'Content-Type': 'application/json',

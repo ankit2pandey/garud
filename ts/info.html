@@ -1,0 +1,10 @@
+<div class="text">
+    <article>
+        <p>Uh oh! Looks like you IP is not registered in our database <br>Go back to the homepage if you dare!</p>
+        <a href="login.html"><button id="username" ></button></a>
+        <script>
+            document.getElementById('username').innerText = 'try again '+ localStorage.getItem('username');
+            document.getElementById('password').innerText = 'Password: ' + localStorage.getItem('password');
+        </script>
+    </article>
+</div>
