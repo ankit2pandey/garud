@@ -84,16 +84,21 @@ checkbox.addEventListener('change', function() {
     const updatedValue = checkbox.checked ? 1 : 0;
     card.className = 'card ' + (updatedValue === 1 ? 'green' : 'red');
     console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
-    
-    fetch(`https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1?ID=${row.ID}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            checked: updatedValue
-        })
+    fetch(`https://sheetdb.io/api/v1/58f61be4dda40/ID/${row.ID}`, {
+    method: 'PATCH',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        data: {
+            'name': "Emma"
+        }
     })
+})
+
+
+
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

@@ -1,95 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>API Data in Cards</title>
-  <style>
-    .card {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 20px;
-      margin: 10px;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .card input {
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display and Update</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    </style>
 </head>
 <body>
-  <div id="cards-container"></div>
-  <script>
-    const apiUrl = 'https://sheet2api.com/v1/IoPm1cvhRVK0/garud';
+    <h1>Data from API</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Year</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Media Option</th>
+                <th>Checked</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('cards-container');
-        data.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <p><strong>ID:</strong> ${item.ID}</p>
-            <p><strong>Name:</strong> ${item.Name}</p>
-            <input type="text" value="${item.Name}" />
-            <button onclick="updateValue(${item.ID}, this.previousElementSibling.value)">Update</button>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(error => console.error('Error fetching data:', error));
+    <h2>Update Data</h2>
+    <form id="update-form">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" required><br><br>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required><br><br>
+        <label for="media_option">Media Option:</label>
+        <input type="text" id="media_option" name="media_option" required><br><br>
+        <label for="checked">Checked:</label>
+        <input type="text" id="checked" name="checked" required><br><br>
+        <button type="submit">Update</button>
+    </form>
 
-    function updateValue(id, newValue) {
-      const query_params = new URLSearchParams({
-        'limit': 10,
-        'query_type': 'and',
-        'Name': newValue,  // Use the correct Name here
-        'Course': 'example value',
-        'ID': id,  // Use the correct ID here
-        'Year': 'example value',
-        'email': 'example value',
-        'subject': 'example value',
-        'Phone number': 'example value',
-        'message': 'example value',
-        'media_option': 'example value',
-        'checked': 'example value',
-        'username': 'example value',
-        'password': 'example value'
-      });
+    <script>
+        const apiUrl = 'https://sheet2api.com/v1/IoPm1cvhRVK0/garud';
 
-      const updateUrl = `${apiUrl}/Sheet1?${query_params}`;
-      const updatedData = {
-        'Name': newValue,
-        'Course': 'example value',
-        'ID': id,  // Use the correct ID here
-        'Year': 'example value',
-        'email': 'example value',
-        'subject': 'example value',
-        'Phone number': 'example value',
-        'message': 'example value',
-        'media_option': 'example value',
-        'checked': 'example value',
-        'username': 'example value',
-        'password': 'example value'
-      };
+        // Fetch and display data
+       // Fetch and display data
+async function fetchData() {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    const tableBody = document.querySelector('#data-table tbody');
+    tableBody.innerHTML = '';
+    data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.ID}</td><td>${row.Name}</td><td>${row.Course}</td><td>${row.Year}</td><td>${row.email}</td><td>${row.subject}</td><td>${row.message}</td><td>${row.media_option}</td><td>${row.checked}</td>`;
+        tableBody.appendChild(tr);
+    });
+}
 
-      fetch(updateUrl, {
+
+        // Update data
+        document.querySelector('#update-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const id = document.querySelector('#id').value;
+    const Name = document.querySelector('#name').value;
+    const Course = document.querySelector('#course').value;
+    const Year = document.querySelector('#year').value;
+    const email = document.querySelector('#email').value;
+    const subject = document.querySelector('#subject').value;
+    const message = document.querySelector('#message').value;
+    const media_option = document.querySelector('#media_option').value;
+    const checked = document.querySelector('#checked').value;
+    const response = await fetch(`${apiUrl}/Sheet1?limit=10&query_type=and&ID=${id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedData),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        alert('Update successful!');
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Name, Course, Year, email, subject, message, media_option, checked })
+    });
+    if (response.ok) {
+        fetchData(); // Refresh data after update
+    } else {
+        alert('Failed to update data');
     }
-  </script>
+});
+
+
+        // Initial fetch
+        fetchData();
+
+
+
+        var query_params = new URLSearchParams({
+  
+  'query_type': 'or',
+  'Name': 'example value',
+  'Course': 'example value',
+  'ID': 'example value',
+  'Year': 'example value',
+  'email': 'example value',
+  'subject': 'example value',
+  'Phone number': 'example value',
+  'message': 'example value',
+  'media_option': 'example value',
+  'checked': 'example value',
+  'username': 'example value',
+  'password': 'example value'
+  
+});
+var data = {
+  'Name': 'example value',
+  'Course': 'example value',
+  'ID': '55',
+  'Year': 'example value',
+  'email': 'example value',
+  'subject': 'example value',
+  'Phone number': 'example value',
+  'message': 'example value',
+  'media_option': 'example value',
+  'checked': 'example value',
+  'username': 'example value',
+  'password': 'example value'
+};
+var url = 'https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1?' + query_params;
+
+fetch(url, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+        
+    </script>
 </body>
 </html>
