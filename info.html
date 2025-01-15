@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Contact</title>
+  	<title>garud</title>
     <link rel="icon" href="./images/logo.png" type="image/icon type">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="404.css">
 
 	</head>
 	<body>
@@ -29,7 +28,7 @@
                    <img src="/images/logo.png" alt="Garud Logo" /></a> 
                   </h1>
               <ul>
-                <li ><a href="index.html"><span>Home</span></a></li>
+                <li class="active"><a href="index.html"><span>Home</span></a></li>
                 <li ><a href="404.html"><span>media</span></a></li>
                 <li><a href="about.html"><span>About us</span></a></li>
                 <li><a href="https://www.invertisuniversity.ac.in/about-invertis/overview"><span>About Invertis</span></a></li>
@@ -38,6 +37,7 @@
                 <li ><a href="garage.html"><span>garage</span></a></li>
                 <li><a href="login.html"><span>Login</span></a></li>
                 <li><a href="contact.html"><span>Contact</span></a></li>
+                
               </ul>
             </div>
           </div>
@@ -56,65 +56,34 @@
 	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
         </div>
       </header>
+
+      <section class="hero-wrap js-fullheight">
+	      <div class="container px-0">
+	        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+	          <div class="col-md-12 ftco-animate text-center">
+	          	<div class="desc">
+		            <h1>the formula student</h1>
+                    <h2 class="ap1">HI</h2>
+		            <h2 class="ap1" id="username"></h2>
+                    <div class="text">
+                        <article>
+                            
+                            <script>
+                                document.getElementById('username').innerText = '--------'+localStorage.getItem('username')+'--------';
+                                document.getElementById('password').innerText = 'Password: ' + localStorage.getItem('password');
+                            </script>
+                        </article>
+                    </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
+
     </div>
   </div>
 
 
-  <div>
-    <!-- about -->
- 
-     <section class="wrapper">
- 
-         <div class="container">
- 
-             <div id="scene" class="scene" data-hover-only="false">
- 
- 
-                 <div class="circle" data-depth="1.2"></div>
- 
-                 <div class="one" data-depth="0.9">
-                     <div class="content">
-                         <span class="piece"></span>
-                         <span class="piece"></span>
-                         <span class="piece"></span>
-                     </div>
-                 </div>
- 
-                 <div class="two" data-depth="0.60">
-                     <div class="content">
-                         <span class="piece"></span>
-                         <span class="piece"></span>
-                         <span class="piece"></span>
-                     </div>
-                 </div>
- 
-                 <div class="three" data-depth="0.40">
-                     <div class="content">
-                         <span class="piece"></span>
-                         <span class="piece"></span>
-                         <span class="piece"></span>
-                     </div>
-                 </div>
- 
-                 <p class="p404" data-depth="0.50">404</p>
-                 <p class="p404" data-depth="0.10">404</p>
- 
-             </div>
- 
-             <div class="text">
-                 <article>
-                     <p>Uh oh! Looks like you IP is not registered in our database <br>Go back to the homepage if you dare!</p>
-                     <a href="login.html"><button id="username" ></button></a>
-                     <script>
-                         document.getElementById('username').innerText = 'try again '+ localStorage.getItem('username');
-                         document.getElementById('password').innerText = 'Password: ' + localStorage.getItem('password');
-                     </script>
-                 </article>
-             </div>
- 
-         </div>
-     </section>
-  </div>
   <footer>
     <div class="footer-logo">
         <img src="./images/logo.png" alt="Team Logo">
