@@ -20,7 +20,7 @@
     <nav id="colorlib-main-nav" role="navigation">
       <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
       <div class="js-fullheight colorlib-table">
-        <div class="img" style="background-image: url(images/logo.png);"></div>
+        
         <div class="colorlib-table-cell js-fullheight">
           <div class="row no-gutters">
             <div class="col-md-12 text-center">  
@@ -82,7 +82,8 @@
           </div>
         </div>
         <div class="btn-group">
-          <button type="submit" class="btn btn--primary" >Sign in</button><a class="btn--text" href="#0">Forgot password?</a>
+          <button type="submit" class="btn btn--primary" >Sign in</button><a class="btn--text" id="forgot-password" href="#0">Forgot password?</a>
+
         </div>
       </div>
     </form>
@@ -97,7 +98,7 @@
         <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
     </p>
     <div class="contact-info">
-        <p>Contact Person: Umair Qureshi</p>
+        <p>Contact Person: Uma</p>
         <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
         <p>Phone: +91 96348 53979</p>
         <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
@@ -120,6 +121,9 @@ Bareilly, Uttar Pradesh Pin - 243 123, India</p>
                   data.forEach(row => {
                       if (username === row.ID && password === row.password) {
                           localStorage.setItem('username', row.username);
+                          localStorage.setItem('message', row.message);
+                          localStorage.setItem('checked', row.checked);
+                          localStorage.setItem('media_option', row.media_option);
                           window.location.href = 'info.html';
                           validUser = true;
                       }
@@ -133,7 +137,12 @@ Bareilly, Uttar Pradesh Pin - 243 123, India</p>
               }
   
               document.querySelector('form').addEventListener('submit', saveCredentials);
-          });
+              document.getElementById('forgot-password').addEventListener('click', function(event) {
+                 event.preventDefault();
+                  alert('Please contact the support team at Uq18032@gmail.com to reset your password.');
+                 });
+          
+            });
   });
   </script>
   

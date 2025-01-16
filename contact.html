@@ -24,6 +24,7 @@
       const formData = new FormData(form);
        fetch('https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec', { method: 'POST', body: formData }).then(response => response.json()) .then(data => { console.log('Success:', data);
         alert('Data sent successfully!');
+        window.location.href = 'login.html';
 
         }).catch(error => { console.error('Error:', error);
          alert('Failed to send data.'); }); } </script>
@@ -34,7 +35,7 @@
     <nav id="colorlib-main-nav" role="navigation">
       <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
       <div class="js-fullheight colorlib-table">
-        Contact To: Uma<div class="img" style="background-image: url(images/logo.png);"></div>ir Qureshi
+        
         <div class="colorlib-table-cell js-fullheight">
           <div class="row no-gutters">
             <div class="col-md-12 text-center">  
@@ -104,8 +105,12 @@
                   </div>
                   <div class="form-group">
                       <label for="subject"  > Address <span class="required">*</span></label>
-                      <input type="text" class="form-control" name="subject" id="subject"  required="required" placeholder="a">
+                      <input type="text" class="form-control" name="subject" id="subject"  required="required" placeholder="Address">
                   </div>
+                  <div class="form-group">
+                    <label for="subject"  > password <span class="required">*</span></label>
+                    <input type="text" class="form-control" name="password" id="subject"  required="required" placeholder="password">
+                </div>
                   
                   <div class="form-group">
                     <label for="subject"  > Phone number <span class="required">*</span></label>
@@ -145,7 +150,7 @@
         <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
     </p>
     <div class="contact-info">
-        <p>Contact Person: Umair Qureshi</p>
+        <p>Contact Person: Uma</p>
         <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
         <p>Phone: +91 96348 53979</p>
         <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
