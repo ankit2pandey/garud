@@ -333,7 +333,7 @@ input[type=submit]:active, input[type=submit]:focus {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(212, 16, 16, 0.5); /* Semi-transparent background */
+    background-color: rgba(16, 212, 29, 0.5); /* Semi-transparent background */
     transition: opacity 0.3s; /* Smooth transition effect */
     z-index:1
 }
@@ -346,7 +346,7 @@ input[type=submit]:active, input[type=submit]:focus {
    
 }
 .close {
-    color: #00c106;
+    color: #f4f6f4;
     float: right;
     font-size: 28px;
     font-weight: bold;
