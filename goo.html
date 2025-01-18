@@ -47,7 +47,7 @@
 <body>
     <div class="search-container">
     <input type="text" id="search-box" placeholder="Search by any field">
-   
+        <p id="ap-smm"></p>
         
     </div>
     <div id="cards-container">
@@ -55,15 +55,19 @@
     </div>
 
     <script>
+        let a=0;
         document.addEventListener('DOMContentLoaded', function() {
             fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1')
                 .then(response => response.json())
                 .then(data => {
                     const cardsContainer = document.getElementById('cards-container');
                     const searchBox = document.getElementById('search-box');
-
+                        
                     function createCard(row) {
+                        a=a+1;
+                        document.getElementById('ap-smm').innerText = 'total entry count '+ a;
                         if (row.ID) { 
+                            
                             const card = document.createElement('div');
                             card.className = 'card ' + (row.checked == 1 ? 'green' : 'red');
                             
@@ -145,6 +149,8 @@ checkbox.addEventListener('change', function() {
                     alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
                 });
         });
+    
+        
     </script>
     
 </body>
