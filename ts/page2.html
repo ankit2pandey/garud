@@ -3,82 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal Dialog Example</title>
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(212, 16, 16, 0.5); /* Semi-transparent background */
-            transition: opacity 0.3s; /* Smooth transition effect */
+    <title>Page 2</title>
+    <script>
+        window.onload = function() {
+            const data = localStorage.getItem('sharedData');
+            document.getElementById('displayData').innerText = data ? data : 'No data found';
         }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            
-            width: 80%;
-           
-        }
-        .close {
-            color: #cf2222;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s; /* Smooth color transition */
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-    </style>
+    </script>
 </head>
 <body>
+    <h1>Page 2</h1>
+    <p id="displayData"></p>
+    <a href="/index.html">Back to Page 1</a>
+    
 
-<!-- Button to trigger modal -->
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times</span>
-        <p>This is a modal dialog!</p>
-    </div>
-</div>
-
-<script>
-    var modal = document.getElementById("modal");
-    var btn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];
-    btn.onclick = function() {
-        modal.style.display = "block";
-        
-        modal.style.opacity = "1"; // Fade in effect
-        
-    }
-    span.onclick = function() {
-        modal.style.opacity = "0"; // Fade out effect
-        setTimeout(function() {
-            modal.style.display = "none";
-            alert('Data sent successfully!');
-        }, 300); // Wait for the transition to complete
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.opacity = "0";
-            setTimeout(function() {
-                modal.style.display = "none";
-            }, 300);
-        }
-    }
-</script>
-
+    <form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec"
+>
+  <input name="Email" type="email" placeholder="Email" required>
+  <input name="Name" type="text" placeholder="Name" required>
+  <button type="submit">Send</button>
+</form>
 </body>
 </html>
