@@ -236,12 +236,16 @@ input[type=submit]:active, input[type=submit]:focus {
 }
 
 #postcard{
+   
     z-index: 102;
     margin: 50px auto;
     position: absolute;
     transform: scale(1.2) rotate(30deg);
     left: 650px;
     
+}
+.img-ap-op{
+    width: -webkit-fill-available;
 }
 
 .move {
