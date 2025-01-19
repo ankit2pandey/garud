@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data</title>
+    <style>
+       
+        .data-box td {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch Data from API</h1>
+    <div class="data-box">
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>no</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>phone number</th>
+                    <th>message</th>
+                    <th>media_option</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Fetch data from the API
+        fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1')
+            .then(response => response.json())
+            .then(data => {
+                // Insert data into the table
+                const table = document.getElementById('data-table').getElementsByTagName('tbody')[0];
+                let a = 1;
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td><div class="data-box">${a++}</div></td><td><div class="data-box">${row.ID}</div></td><td><div class="data-box">${row.Name}</div></td><td><div class="data-box">${row.email}</div></td><td><div class="data-box">${row["Phone number"]}</div></td><td><div class="data-box">${row.message}</div></td><td><div class="data-box">${row.media_option}</div></td><td><div class="data-box">${row.Course}</div></td>`;
+                    table.appendChild(tr);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
