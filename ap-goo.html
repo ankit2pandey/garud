@@ -143,6 +143,7 @@
                             card.className = 'card ' + (row.checked == 1 ? 'green' : 'red');
                             
                             card.innerHTML = `
+                                <h2>${a}</h2>
                                 <h2>${row.Name}</h2>
                                 <p><strong>Course:</strong> ${row.Course}</p>
                                 <p><strong>ID:</strong> ${row.ID}</p>
@@ -151,7 +152,7 @@
                                 <p><strong>Subject:</strong> ${row.subject}</p>
                                 <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
                                 <p><strong>Message:</strong> ${row.message}</p>
-                                <input type="button" value="Go to Example" onclick="window.location.href='https://api.whatsapp.com/send?phone=91${row["Phone number"]}&text=ankit';">
+                                <input type="button" value="Go to Example" onclick="window.location.href='https://api.whatsapp.com/send?phone=91${row["Phone number"]}&text=Dear%20${row.Name}%0AWe%20are%20pleased%20to%20inform%20you%20that%20you%20have%20been%20shortlisted%20for%20the%20interview%20process%20for%20our%20Formula%20Student%20Club%2C%20Garud.%20Congratulations%20on%20reaching%20this%20stage!%0A%0AHere%20are%20the%20details%20of%20your%20interview%3A%0A%0ADate%3A%20${row.Date}%0ATime%3A%20${row.Time}%0AVenue%3A%20Invertis%20Incubation%20Centre%0A%0APlease%20ensure%20that%20you%20arrive%20at%20least%2010%20minutes%20before%20your%20scheduled%20time.%20The%20interview%20will%20give%20us%20an%20opportunity%20to%20learn%20more%20about%20your%20skills%2C%20interests%2C%20and%20enthusiasm%20for%20contributing%20to%20Garud.%0A%0AIf%20you%20have%20any%20questions%20or%20require%20additional%20information%2C%20feel%20free%20to%20contact%20us%20%0A%0AWe%20look%20forward%20to%20meeting%20you%20and%20discussing%20how%20you%20can%20be%20a%20valuable%20part%20of%20our%20team.%0A%0ABest%20regards%2C%0AGarud';">
                                 <p><strong>Media option:</strong> ${row.media_option}</p>
                                 <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
                                 
