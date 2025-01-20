@@ -151,6 +151,7 @@
                                 <p><strong>Subject:</strong> ${row.subject}</p>
                                 <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
                                 <p><strong>Message:</strong> ${row.message}</p>
+                                <input type="button" value="Go to Example" onclick="window.location.href='https://api.whatsapp.com/send?phone=91${row["Phone number"]}&text=ankit';">
                                 <p><strong>Media option:</strong> ${row.media_option}</p>
                                 <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
                                 
