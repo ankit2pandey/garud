@@ -19,25 +19,37 @@
     <link rel="stylesheet" href="contact.css">
 
     <script>
-      
-     function passData(event) { event.preventDefault(); 
-      document.getElementById('ap-smm').innerText =  'Please wait, data is sending. And you get a new message.'
-     
-     var modal = document.getElementById("modal");
-     
-    modal.style.display = "block";
-        
-        modal.style.opacity = "1"
+      function passData(event) {
+    event.preventDefault();
     
-     const form = document.getElementById('myForm');
-      const formData = new FormData(form);
-       fetch('https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec', { method: 'POST', body: formData }).then(response => response.json()) .then(data => { console.log('Success:', data);
-        document.getElementById('ap-smm').innerText =  'Data sent successfully!'
-       
-        
+    const statusMessage = document.getElementById('ap-smm');
+    const modal = document.getElementById('modal');
+    const form = document.getElementById('myForm');
+    const formData = new FormData(form);
 
-        }).catch(error => { console.error('Error:', error);
-         alert('Failed to send data.'); }); } </script>
+    // Display the status message and the modal
+    statusMessage.innerText = 'Please wait, data is sending. And you get a new message.';
+    modal.style.display = 'block';
+    modal.style.opacity = '1';
+    
+    // Send form data using Fetch API
+    fetch('https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        statusMessage.innerText = 'Data sent successfully!';
+        modal.style.opacity = '1'; // Hides the modal after successful submission
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to send data.');
+        modal.style.opacity = '0'; // Hides the modal in case of error
+    });
+}
+ </script>
 	</head>
 	<body>
 	
