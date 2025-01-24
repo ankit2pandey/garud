@@ -123,6 +123,13 @@
   top: 0;
   border-radius: 10px;
 }
+.ap-box1{
+        margin-top: 90px;
+    } 
+@media (max-width: 575.98px) {
+    .ap-box1{
+        margin-top: 150px;
+    } }
     </style>
 	</head>
 	<body style="background-color: black;">
@@ -169,11 +176,10 @@
 	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
         </div>
       </header>
-<div>
+<div class="ap-box1">
       <div class="search-container">
         <input type="text" id="search-box" placeholder="Search by any field">
             <p id="ap-smm" class="button-85" ></p> 
-            <button class="button-85" onClick="location.href='goo-tab.html'" >table view</button>
             
         </div>
         <div id="cards-container" style="display: contents;">
@@ -203,9 +209,6 @@
                                     <p><strong>Course:</strong> ${row.Course}</p>
                                     <p><strong>ID:</strong> ${row.ID}</p>
                                     <p><strong>Year:</strong> ${row.Year}</p>
-                                    <p><strong>Email:</strong> ${row.email}</p>
-                                    <p><strong>Subject:</strong> ${row.subject}</p>
-                                    <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
                                     <p><strong>Message:</strong> ${row.message}</p>
                                     <p><strong>Media option:</strong> ${row.media_option}</p>
                                     <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
