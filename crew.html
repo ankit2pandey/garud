@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>garud</title>
+    <link rel="icon" href="./images/logo.png" type="image/icon type">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #111;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card input[type="checkbox"] {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        .card.red { background-color: #ffcccc; } 
+        .card.green { background-color: #ccffcc; }
+        .card.aliceblue { background-color: aliceblue; }
+        .search-container {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+    </style>
+	</head>
+	<body style="background-color: black;">
+	
+	<div class="page">
+    <nav id="colorlib-main-nav" role="navigation">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+      <div class="js-fullheight colorlib-table">
+        
+        <div class="colorlib-table-cell js-fullheight">
+          <div class="row no-gutters">
+            <div class="col-md-12 text-center">  
+              <h1 class="mb-4"> 
+                <a href="index.html" class="logo" id="ap_logo1">
+                   <img src="/images/logo.png" alt="Garud Logo" /></a> 
+                  </h1>
+              <ul>
+                <li ><a href="index.html"><span>Home</span></a></li>
+                <li ><a href="404.html"><span>media</span></a></li>
+                <li><a href="about.html"><span>About us</span></a></li>
+                <li><a href="https://www.invertisuniversity.ac.in/about-invertis/overview"><span>About Invertis</span></a></li>
+                <li ><a href="presidential.html"><span>presidential team </span></a></li>
+                <li class="active"><a href="crew.html"><span>crew</span></a></li>
+                <li ><a href="garage.html"><span>garage</span></a></li>
+                <li><a href="login.html"><span>Login</span></a></li>
+                <li><a href="contact.html"><span>Contact</span></a></li>
+                
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="colorlib-page">
+      <header>
+      	<div class="container">
+	        <div class="colorlib-navbar-brand">
+            <div class="colorlib-navbar-brand">
+              <a class="colorlib-logo" href="index.html"> <img src="images/logo.png" alt="Garud Logo" class="logo-image" /> </a>
+            </div>
+	        </div>
+	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        </div>
+      </header>
+<div>
+      <div class="search-container">
+        <input type="text" id="search-box" placeholder="Search by any field">
+            <p id="ap-smm" class="button-85" ></p> 
+            <button class="button-85" onClick="location.href='goo-tab.html'" >table view</button>
+            
+        </div>
+        <div id="cards-container" style="display: contents;">
+          
+        </div>
+    </div>
+        <script>
+            let a=0;
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/garud/Sheet1')
+                    .then(response => response.json())
+                    .then(data => {
+                        const cardsContainer = document.getElementById('cards-container');
+                        const searchBox = document.getElementById('search-box');
+                            
+                        function createCard(row) {
+                            a=a+1;
+                            document.getElementById('ap-smm').innerText = 'total entry count '+ a;
+                            if (row.ID) { 
+                                
+                                const card = document.createElement('div');
+                        card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+    
+                                card.innerHTML = `
+                                    <h2>${a}</h2>
+                                    <h2>${row.Name}</h2>
+                                    <p><strong>Course:</strong> ${row.Course}</p>
+                                    <p><strong>ID:</strong> ${row.ID}</p>
+                                    <p><strong>Year:</strong> ${row.Year}</p>
+                                    <p><strong>Email:</strong> ${row.email}</p>
+                                    <p><strong>Subject:</strong> ${row.subject}</p>
+                                    <p><strong>Phone number:</strong> ${row["Phone number"]}</p>
+                                    <p><strong>Message:</strong> ${row.message}</p>
+                                    <p><strong>Media option:</strong> ${row.media_option}</p>
+                                    <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
+                                    
+                                ` ;
+    
+                                const checkbox = card.querySelector('input[type="checkbox"]');
+    checkbox.addEventListener('change', function() {
+        const updatedValue = checkbox.checked ? 1 : 0;
+        
+    card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+    
+        
+        console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
+        fetch(`https://sheetdb.io/api/v1/58f61be4dda40/ID/${row.ID}`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            data: {
+                'name': "Emma"
+            }
+        })
+    })
+    
+    
+    
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data updated:', data);
+        })
+        .catch(error => {
+            console.error('Error updating data:', error);
+            alert('An error occurred while updating the data. Please try again.');
+        });
+    });
+    
+    
+                                cardsContainer.appendChild(card);
+                            }
+                        }
+                        
+    
+                        function filterCards(searchTerm) {
+                            cardsContainer.innerHTML = '';
+                            
+                            data.forEach(row => {
+                                const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
+                                if (searchString.includes(searchTerm.toLowerCase())) {
+                                    createCard(row);
+                                }
+                            });
+                        }
+    
+                        data.forEach(createCard);
+    
+                        searchBox.addEventListener('input', function() {
+                            filterCards(searchBox.value);
+                            
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
+                    });
+            });
+        
+            
+        </script>
+        
+
+  
+  <script type="text/javascript" src="//www.highperformanceformat.com/0c4de836c1202ea77105e775ad1d6f50/invoke.js"></script>
+  
+
+  <footer>
+    <div class="footer-logo">
+        <img src="./images/logo.png" alt="Team Logo">
+    </div>
+    <p>&copy; 2025 GARUD Team. All rights reserved.</p>
+    <p>
+        <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
+        <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
+    </p>
+    <div class="contact-info">
+        <p>Contact Person: Umair Qureshi</p>
+        <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
+        <p>Phone: +91 96348 53979</p>
+        <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
+Bareilly, Uttar Pradesh Pin - 243 123, India</p>
+    </div>
+    <p>Website made by <a href="https://www.instagram.com/ankit2pandey">Ankit2Pandey</a></p>
+</footer>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+

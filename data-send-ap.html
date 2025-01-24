@@ -33,7 +33,7 @@
         }
         .card.red { background-color: #ffcccc; } 
         .card.green { background-color: #ccffcc; }
-     
+        .card.aliceblue { background-color: aliceblue; }
         .search-container {
             width: 100%;
             margin: 20px 0;
@@ -140,8 +140,8 @@
                         if (row.ID) { 
                             
                             const card = document.createElement('div');
-                            card.className = 'card ' + (row.checked == 1 ? 'green' : 'red');
-                            
+                    card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+
                             card.innerHTML = `
                                 <h2>${a}</h2>
                                 <h2>${row.Name}</h2>
@@ -160,7 +160,10 @@
                             const checkbox = card.querySelector('input[type="checkbox"]');
 checkbox.addEventListener('change', function() {
     const updatedValue = checkbox.checked ? 1 : 0;
-    card.className = 'card ' + (updatedValue === 1 ? 'green' : 'red');
+    
+card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+
+    
     console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
     fetch(`https://sheetdb.io/api/v1/58f61be4dda40/ID/${row.ID}`, {
     method: 'PATCH',
