@@ -120,8 +120,8 @@ Bareilly, Uttar Pradesh Pin - 243 123, India</p>
                   let validUser = false;
   
                   data.forEach(row => {
-                      if (username === row.ID && password === row.password) {
-                          localStorage.setItem('username', row.username);
+                      if (username.toUpperCase() == row.ID.toUpperCase() && password === row.password) {
+                          localStorage.setItem('name', row.Name.toUpperCase());
                           localStorage.setItem('message', row.message);
                           localStorage.setItem('checked', row.checked);
                           localStorage.setItem('media_option', row.media_option);
