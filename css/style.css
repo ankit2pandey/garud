@@ -8580,7 +8580,7 @@ header {
   .footer-logo {
       display: inline-block;
       margin: 10px 0;
-      animation: spin 5s linear infinite;
+      animation: spin 2s linear infinite;
   }
 
   .footer-logo img {
@@ -8600,9 +8600,11 @@ header {
 
   @keyframes spin {
       from {
-          
+        background-color: yellowgreen;
+        width: -webkit-fill-available;
       }
       to {  
-          width: 200px;
+        background-color: black;
+        width: -webkit-fill-available;
       }
   }
