@@ -194,9 +194,14 @@
                     .then(data => {
                         const cardsContainer = document.getElementById('cards-container');
                         const searchBox = document.getElementById('search-box');
-                            
+                        let f = 0;  
                         function createCard(row) {
                             a=a+1;
+                           
+                             // Initial value of f - changed from const to let
+
+                         
+
                             document.getElementById('ap-smm').innerText = 'tota crew '+ a;
                             if (row.ID) { 
                                 
@@ -209,12 +214,18 @@
                                     <p><strong>Course:</strong> ${row.Course}</p>
                                     <p><strong>ID:</strong> ${row.ID}</p>
                                     <p><strong>Year:</strong> ${row.Year}</p>
-                                    <p><strong>Attendance:</strong> ${row.Attendance}</p>
+                                    <p><strong>Attendance:</strong> ${row.Attendance}%</p>
                                     <p><strong>Designation:</strong> ${row.Designation}</p>
                                     <p><strong>Media option:</strong> ${row.media_option}</p>
                                     <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
                                     
                                 ` ;
+                                if(f === 0) {  
+                     if (a == 6) {  // Check if a equals 6
+                            a = a - 1;  // Subtract 1 from a
+                         f = 1;  // Reassign f to 1 (exit loop condition)
+                          }
+                         }
     
                                 const checkbox = card.querySelector('input[type="checkbox"]');
     checkbox.addEventListener('change', function() {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Form</title>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();  // Prevent the form from submitting the default way
+
+      // Collect form data
+      const formData = new FormData(event.target);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+
+      // Send data to your Google Script
+      fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(json => {
+        if (json.result === 'success') {
+          alert('Attendance recorded successfully!');
+        } else {
+          alert('There was an error recording attendance.');
+        }
+      })
+      .catch(error => alert('There was an error: ' + error));
+    }
+  </script>
+</head>
+<body>
+  <h1>Attendance Form</h1>
+  <form onsubmit="handleSubmit(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="Name" required>
+    <br><br>
+    <label for="status">Status:</label>
+    <select id="status" name="Status" required>
+      <option value="Present">Present</option>
+      <option value="Absent">Absent</option>
+      <option value="Late">Late</option>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
