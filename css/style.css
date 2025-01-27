@@ -488,7 +488,7 @@ pre {
       max-width: 960px; } }
   @media (min-width: 1200px) {
     .container {
-      max-width: 1140px; } }
+      max-width: -webkit-fill-available; } }
 
 .container-fluid {
   width: 100%;
@@ -7938,9 +7938,9 @@ a.text-dark:hover, a.text-dark:focus {
   @page {
     size: a3; }
   body {
-    min-width: 992px !important; }
+    min-width: -webkit-fill-available !important; }
   .container {
-    min-width: 992px !important; }
+    min-width: -webkit-fill-available !important; }
   .navbar {
     display: none; }
   .badge {
@@ -8176,7 +8176,7 @@ h1, h2, h3, h4, h5,
           transform: scaleX(1); }
 
 header {
-  padding: 2em 0;
+  
   position: absolute;
   top: 0;
   left: 0;
@@ -8312,6 +8312,7 @@ header {
   transform: rotateZ(-45deg); }
 
 .colorlib-nav-toggle {
+  padding: 20px;
   float: right;
   z-index: 1003;
   position: relative;
