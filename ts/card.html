@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .ag-format-container {
-  width: -webkit-fill-available;
-  margin: 0px;
-}
+
 
 
 body {
   background-color: #000;
+}
+.ag-format-container {
+  width: -webkit-fill-available;
+  margin: 0px;
 }
 .ag-courses_box {
   justify-content: center;
@@ -102,9 +103,9 @@ body {
   -o-transition: all .5s ease;
   transition: all .5s ease;
 }
-.card.red { background-color: #cb4343; } 
-        .card.green { background-color: #45ea45; }
-        .card.aliceblue { background-color: rgb(218, 235, 88); }
+.red { background-color: #cb4343; } 
+        .green { background-color: #45ea45; }
+        .aliceblue { background-color: rgb(218, 235, 88); }
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
   background-color: #3ecd5e;
 }
@@ -170,141 +171,98 @@ body {
     font-size: 16px;
   }
 }
+
+.search-container {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.ap-box1{
+        margin-top: 90px;
+    } 
+@media (max-width: 575.98px) {
+    .ap-box1{
+        margin-top: 150px;
+    } }
+
+
   </style>
 </head>
 <body>
    
-
-  <div class="ag-format-container">
-    <div class="ag-courses_box">
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            UI/Web&amp;Graph design for teenagers 11-17&#160;years old
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              04.11.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            UX/UI Web-Design&#160;+ Mobile Design
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              04.11.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Annual package "Product+UX/UI+Graph designer&#160;2022"
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              04.11.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Graphic Design
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              04.11.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Motion Design
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              30.11.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Front-end development&#160;+ jQuery&#160;+ CMS
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg">
-          </div>
-          <div class="ag-courses-item_title">
-            Digital Marketing
-          </div>
-        </a>
-      </div>
-  
-      <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <div class="ag-courses-item_bg"></div>
-  
-          <div class="ag-courses-item_title">
-            Interior Design
-          </div>
-  
-          <div class="ag-courses-item_date-box">
-            Start:
-            <span class="ag-courses-item_date">
-              31.10.2022
-            </span>
-          </div>
-        </a>
-      </div>
-  
-    </div>
-  </div>
-
-
-
-
   <div class="ap-box1">
     <div class="search-container">
       <input type="text" id="search-box" placeholder="Search by any field">
@@ -341,14 +299,15 @@ body {
                               
                            
                             const card = document.createElement('div');
-                        card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+                        card.className = 'card ' ;
+                        const ap_box=(row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
  
   
                               card.innerHTML = `
 
                                     <div class="ag-courses_item">
-        <a href="#" class="ag-courses-item_link">
-          <divc class="ag-courses-item_bg " ></divc>
+        <a class="ag-courses-item_link">
+          <divc class="ag-courses-item_bg ${ap_box}" ></divc>
   
           <div class="ag-courses-item_title">
             ${row.Designation}
@@ -380,7 +339,7 @@ body {
                        f = 1;  // Reassign f to 1 (exit loop condition)
                         }
                        }
-                       
+                             console.log(ap_box);
                               const checkbox = card.querySelector('input[type="checkbox"]');
   checkbox.addEventListener('change', function() {
       const updatedValue = checkbox.checked ? 1 : 0;

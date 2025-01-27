@@ -1,51 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title>garud</title>
-    <link rel="icon" href="./images/logo.png" type="image/icon type">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
 
 
-    <style>
 
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background-color: #111;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 10px;
-            width: 300px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        .card h2 {
-            margin-top: 0;
-        }
-        .card p {
-            margin: 5px 0;
-        }
-        .card input[type="checkbox"] {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-        }
-        .card.red { background-color: #cb4343; } 
-        .card.green { background-color: #45ea45; }
-        .card.aliceblue { background-color: rgb(218, 235, 88); }
-        .search-container {
+body {
+  background-color: #000;
+}
+.ag-format-container {
+  width: -webkit-fill-available;
+  margin: 0px;
+}
+.ag-courses_box {
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 0;
+}
+.ag-courses_item {
+  height: max-content;
+    width: 400px;
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+
+  margin: 0 15px 30px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+.ag-courses-item_link {
+  display: block;
+  padding: 30px 20px;
+  background-color: #121212;
+
+  overflow: hidden;
+
+  position: relative;
+}
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+  text-decoration: none;
+  color: #FFF;
+}
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.ag-courses-item_title {
+  min-height: 87px;
+  margin: 0 0 25px;
+
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date-box {
+  font-size: 18px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date {
+  font-weight: bold;
+  color: #f9b234;
+
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease
+}
+.ag-courses-item_bg {
+  height: 128px;
+  width: 128px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.red { background-color: #cb4343; } 
+        .green { background-color: #45ea45; }
+        .aliceblue { background-color: rgb(218, 235, 88); }
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+  background-color: #3ecd5e;
+}
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+  background-color: #e44002;
+}
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+  background-color: #952aff;
+}
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+  background-color: #cd3e94;
+}
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+  background-color: #4c49ea;
+}
+.ap-tx {
+  min-height: 87px;
+  margin: 0 0 25px;
+
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+
+
+
+@media only screen and (max-width: 979px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+
+}
+@media only screen and (max-width: 639px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .ag-courses-item_title {
+    min-height: 72px;
+    line-height: 1;
+
+    font-size: 24px;
+  }
+  .ag-courses-item_link {
+    padding: 22px 40px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
+
+.search-container {
             width: 100%;
             margin: 20px 0;
             text-align: center;
@@ -130,203 +257,160 @@
     .ap-box1{
         margin-top: 150px;
     } }
-    </style>
-	</head>
-	<body style="background-color: black;">
-	
-	<div class="page">
-    <nav id="colorlib-main-nav" role="navigation">
-      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
-      <div class="js-fullheight colorlib-table">
-        
-        <div class="colorlib-table-cell js-fullheight">
-          <div class="row no-gutters">
-            <div class="col-md-12 text-center">  
-              <h1 class="mb-4"> 
-                <a href="index.html" class="logo" id="ap_logo1">
-                   <img src="/images/logo.png" alt="Garud Logo" /></a> 
-                  </h1>
-              <ul>
-                <li ><a href="index.html"><span>Home</span></a></li>
-                <li ><a href="404.html"><span>media</span></a></li>
-                <li><a href="about.html"><span>About us</span></a></li>
-                <li><a href="https://www.invertisuniversity.ac.in/about-invertis/overview"><span>About Invertis</span></a></li>
-                <li ><a href="presidential.html"><span>presidential team </span></a></li>
-                <li class="active"><a href="crew.html"><span>crew</span></a></li>
-                <li ><a href="garage.html"><span>garage</span></a></li>
-                <li><a href="login.html"><span>Login</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
-                
-                
-              </ul>
-            </div>
-          </div>
-        </div>
+
+
+  </style>
+</head>
+<body>
+   
+  <div class="ap-box1">
+    <div class="search-container">
+      <input type="text" id="search-box" placeholder="Search by any field">
+          <p id="ap-smm" class="button-85" ></p> 
+          
       </div>
-    </nav>
-    
-    <div id="colorlib-page">
-      <header>
-      	<div class="container">
-	        <div class="colorlib-navbar-brand">
-            <div class="colorlib-navbar-brand">
-              <a class="colorlib-logo" href="index.html"> <img src="images/logo.png" alt="Garud Logo" class="logo-image" /> </a>
-            </div>
-	        </div>
-	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-        </div>
-      </header>
-<div class="ap-box1">
-      <div class="search-container">
-        <input type="text" id="search-box" placeholder="Search by any field">
-            <p id="ap-smm" class="button-85" ></p> 
-            
-        </div>
-        <div id="cards-container" style="display: ruby;">
+      <div class="ag-format-container">
+        <div class="ag-courses_box" id="cards-container">
           
         </div>
-    </div>
-        <script>
-            let a=0;
-            document.addEventListener('DOMContentLoaded', function() {
-                fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/crew')
-                    .then(response => response.json())
-                    .then(data => {
-                        const cardsContainer = document.getElementById('cards-container');
-                        const searchBox = document.getElementById('search-box');
-                        let f = 0;  
-                        function createCard(row) {
-                            a=a+1;
-                           
-                             // Initial value of f - changed from const to let
-
+        </div>
+      <div  style="display: ruby;">
+        
+      </div>
+  </div>
+      <script>
+          let a=0;
+          document.addEventListener('DOMContentLoaded', function() {
+              fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/crew')
+                  .then(response => response.json())
+                  .then(data => {
+                      const cardsContainer = document.getElementById('cards-container');
+                      const searchBox = document.getElementById('search-box');
+                      let f = 0;  
+                      function createCard(row) {
+                          a=a+1;
                          
+                           // Initial value of f - changed from const to let
 
-                            document.getElementById('ap-smm').innerText = 'tota crew '+ a;
-                            if (row.ID) { 
-                                
-                                const card = document.createElement('div');
-                        card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
-    
-                                card.innerHTML = `
-                                    <h2>${a}</h2>
-                                    <h2>${row.Name}</h2>
-                                    <p><strong>Course:</strong> ${row.Course}</p>
-                                    <p><strong>ID:</strong> ${row.ID}</p>
-                                    <p><strong>Year:</strong> ${row.Year}</p>
-                                    <p><strong>Attendance:</strong> ${row.Attendance}%</p>
-                                    <p><strong>Designation:</strong> ${row.Designation}</p>
-                                    <p><strong>Media option:</strong> ${row.media_option}</p>
-                                    <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
-                                    
-                                ` ;
-                                if(f === 0) {  
-                     if (a == 6) {  // Check if a equals 6
-                            a = a - 1;  // Subtract 1 from a
-                         f = 1;  // Reassign f to 1 (exit loop condition)
+                       
+
+                          document.getElementById('ap-smm').innerText = 'tota crew '+ a;
+                          if (row.ID) { 
+                              
+                           
+                            const card = document.createElement('div');
+                        card.className = 'card ' ;
+                        const ap_box=(row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+ 
+  
+                              card.innerHTML = `
+
+                                    <div class="ag-courses_item">
+        <a class="ag-courses-item_link">
+          <divc class="ag-courses-item_bg ${ap_box}" ></divc>
+  
+          <div class="ag-courses-item_title">
+            ${row.Designation}
+          </div>
+             <div class="ap-tx">
+                                  <h2>${row.Name}</h2>
+                                  <p><strong>Course:</strong> ${row.Course}</p>
+                                  <p><strong>ID:</strong> ${row.ID}</p>
+                                  <p><strong>Year:</strong> ${row.Year}</p>
+                                  <p><strong>Attendance:</strong> ${row.Attendance}%</p>
+                                  
+                                  <p><strong>Media option:</strong> ${row.media_option}</p>
+                                  <input type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
+             </div>
+          <div class="ag-courses-item_date-box">
+            ..:
+            <span class="ag-courses-item_date">
+              ..
+            </span>
+          </div>
+        </a>
+      </div>
+                                 
+                                  
+                              ` ;
+                              if(f === 0) {  
+                   if (a == 6) {  // Check if a equals 6
+                          a = a - 1;  // Subtract 1 from a
+                       f = 1;  // Reassign f to 1 (exit loop condition)
+                        }
+                       }
+                             console.log(ap_box);
+                              const checkbox = card.querySelector('input[type="checkbox"]');
+  checkbox.addEventListener('change', function() {
+      const updatedValue = checkbox.checked ? 1 : 0;
+      
+  card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+  
+      
+      console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
+      fetch(`https://sheetdb.io/api/v1/58f61be4dda40/ID/${row.ID}`, {
+      method: 'PATCH',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          data: {
+              'name': "Emma"
+          }
+      })
+  })
+  
+  
+  
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Data updated:', data);
+      })
+      .catch(error => {
+          console.error('Error updating data:', error);
+          alert('Uh oh! Looks like you IP is not registered in our database');
+      });
+  });
+  
+  
+                              cardsContainer.appendChild(card);
                           }
-                         }
-    
-                                const checkbox = card.querySelector('input[type="checkbox"]');
-    checkbox.addEventListener('change', function() {
-        const updatedValue = checkbox.checked ? 1 : 0;
-        
-    card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
-    
-        
-        console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
-        fetch(`https://sheetdb.io/api/v1/58f61be4dda40/ID/${row.ID}`, {
-        method: 'PATCH',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            data: {
-                'name': "Emma"
-            }
-        })
-    })
-    
-    
-    
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Data updated:', data);
-        })
-        .catch(error => {
-            console.error('Error updating data:', error);
-            alert('Uh oh! Looks like you IP is not registered in our database');
-        });
-    });
-    
-    
-                                cardsContainer.appendChild(card);
-                            }
-                        }
-                        
-    
-                        function filterCards(searchTerm) {
-                            cardsContainer.innerHTML = '';
-                            
-                            data.forEach(row => {
-                                const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
-                                if (searchString.includes(searchTerm.toLowerCase())) {
-                                    createCard(row);
-                                }
-                            });
-                        }
-    
-                        data.forEach(createCard);
-    
-                        searchBox.addEventListener('input', function() {
-                            filterCards(searchBox.value);
-                            
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                        alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
-                    });
-            });
-        
-            
-        </script>
-        
+                      }
+                      
+  
+                      function filterCards(searchTerm) {
+                          cardsContainer.innerHTML = '';
+                          
+                          data.forEach(row => {
+                              const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
+                              if (searchString.includes(searchTerm.toLowerCase())) {
+                                  createCard(row);
+                              }
+                          });
+                      }
+  
+                      data.forEach(createCard);
+  
+                      searchBox.addEventListener('input', function() {
+                          filterCards(searchBox.value);
+                          
+                      });
+                  })
+                  .catch(error => {
+                      console.error('Error fetching data:', error);
+                      alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
+                  });
+          });
+      
+          
+      </script>
 
   
-  <script type="text/javascript" src="//www.highperformanceformat.com/0c4de836c1202ea77105e775ad1d6f50/invoke.js"></script>
-  
-
-  <footer>
-    <div class="footer-logo">
-        <img src="./images/logo.png" alt="Team Logo">
-    </div>
-    <p>&copy; 2025 GARUD Team. All rights reserved.</p>
-    <p>
-        <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
-        <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
-    </p>
-    <div class="contact-info">
-        <p>Contact Person: Umair Qureshi</p>
-        <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
-        <p>Phone: +91 96348 53979</p>
-        <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
-Bareilly, Uttar Pradesh Pin - 243 123, India</p>
-    </div>
-    <p>Website made by <a href="https://www.instagram.com/ankit2pandey">Ankit2Pandey</a></p>
-</footer>
-
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-
-	</body>
+</body>
 </html>
-
