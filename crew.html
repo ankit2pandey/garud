@@ -255,6 +255,62 @@ body {
       margin-left: 10%;
     } }
 
+    
+  footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+  }
+
+  footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+  footer a:hover {
+      text-decoration: underline;
+  }
+
+  .contact-info {
+      margin-top: 10px;
+  }
+
+  .footer-logo {
+      display: inline-block;
+      margin: 10px 0;
+      animation: spin 2s linear infinite;
+  }
+
+  .footer-logo img {
+      height: 50px;
+      width: auto;
+      animation: fadeIn 2s forwards;
+  }
+
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+  @keyframes spin {
+      from {
+        background-color: yellowgreen;
+        width: -webkit-fill-available;
+      }
+      to {  
+        background-color: black;
+        width: -webkit-fill-available;
+      }
+  }
+
 
   </style>
 </head>
@@ -407,6 +463,25 @@ body {
       
           
       </script>
+
+<footer>
+  <div class="footer-logo">
+      <img src="./images/logo.png" alt="Team Logo">
+  </div>
+  <p>&copy; 2025 GARUD Team. All rights reserved.</p>
+  <p>
+      <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
+      <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
+  </p>
+  <div class="contact-info">
+      <p>Contact Person: Umair Qureshi</p>
+      <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
+      <p>Phone: +91 96348 53979</p>
+      <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
+Bareilly, Uttar Pradesh Pin - 243 123, India</p>
+  </div>
+  <p>Website made by <a href="https://www.instagram.com/ankit2pandey">Ankit2Pandey</a></p>
+</footer>
 
   
 </body>
