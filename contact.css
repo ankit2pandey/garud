@@ -264,7 +264,7 @@ input[type=submit]:active, input[type=submit]:focus {
     from {left: 650px; transform: scale(1.2) rotate(30deg); z-index:102;  }
     50%  {left: 1150px; top: -200px; transform: scale(0.8) rotate(45deg); z-index:102; }
     75% {left: 1000px; top: -200px; transform: scale(0.8) rotate(45deg); z-index:1;}
-    to {left: 650px; transform: scale(1)  rotate(20deg); z-index:1;}
+    to {left: unset;width: 1000px; transform: scale(1)  rotate(360deg); z-index:1;}
 }
 
 @keyframes animTabletHor
@@ -280,7 +280,7 @@ input[type=submit]:active, input[type=submit]:focus {
     from {left: 250px; transform: scale(1.2) rotate(28deg); z-index:102;  }
     50%  {left: 800px; top: -200px; transform: scale(0.8) rotate(45deg); z-index:102; }
     75% {left: 600px; top: -200px; transform: scale(0.8) rotate(45deg); z-index:1;}
-    to {left: 300px; transform: scale(1)  rotate(20deg); z-index:1;}
+    to {height: -webkit-fill-available;width: -webkit-fill-available;left: unset;transform: scale(1)  rotate(360deg);z-index:1;}
 }
 
 @keyframes animPhone
@@ -289,7 +289,7 @@ input[type=submit]:active, input[type=submit]:focus {
     25% {transform: scale(1) rotate(0deg);}
     50% { transform: scale(0.8) rotate(0deg); top: -550px; ; z-index:102;}
     75% { transform: scale(0.9) rotate(0deg); top: -200px; z-index:1;}
-    to { transform: scale(1) rotate(0deg); top: -100px; z-index:1;}
+    to {width: auto;transform: scale(1.2) rotate(359deg);top: -67px;z-index:1;height: auto;}
 }
 
 @media (min-width: 981px) and (max-width : 1280px) {
