@@ -339,6 +339,7 @@ body {
   </div>
       <script>
           let a=0;
+
           document.addEventListener('DOMContentLoaded', function() {
               fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/crew')
                   .then(response => response.json())
@@ -353,7 +354,7 @@ body {
 
                        
 
-                          document.getElementById('ap-smm').innerText = 'Entire Crew '+ a;
+                          document.getElementById('ap-smm').innerText = 'Entire Crew '+ (a-1);
                           if (row.ID) { 
                               
                            
@@ -445,8 +446,9 @@ body {
   
                       function filterCards(searchTerm) {
                           cardsContainer.innerHTML = '';
-                          
+                          a=0
                           data.forEach(row => {
+
                               const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
                               if (searchString.includes(searchTerm.toLowerCase())) {
                                   createCard(row);
