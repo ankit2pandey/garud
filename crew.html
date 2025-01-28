@@ -184,6 +184,7 @@ body {
 
 /* CSS */
 .button-85 {
+  font-size: 28px;
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -199,18 +200,20 @@ body {
 }
 
 .button-85:before {
+  
   content: "";
   background: linear-gradient(
     45deg,
     #ff0000,
     #ff7300,
     #fffb00,
-    #48ff00,
-    #00ffd5,
+   
     #002bff,
     #7a00ff,
     #ff00c8,
-    #ff0000
+    #ff0000,
+    #48ff00,
+    #00ffd5
   );
   position: absolute;
   top: -2px;
@@ -221,7 +224,7 @@ body {
   -webkit-filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
+  animation: glowing-button-85 7s cubic-bezier(0.89, -0.59, 0.17, 1.29);
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
@@ -229,12 +232,15 @@ body {
 @keyframes glowing-button-85 {
   0% {
     background-position: 0 0;
+    width: 0px;
   }
   50% {
     background-position: 400% 0;
+   
   }
   100% {
     background-position: 0 0;
+    
   }
 }
 
@@ -347,7 +353,7 @@ body {
 
                        
 
-                          document.getElementById('ap-smm').innerText = 'Entire Workforce '+ a;
+                          document.getElementById('ap-smm').innerText = 'Entire Crew '+ a;
                           if (row.ID) { 
                               
                            
