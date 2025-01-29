@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+
+body {
+  background-color: #000;
+}
+.ag-format-container {
+  width: -webkit-fill-available;
+  margin: 0px;
+}
+.ag-courses_box {
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: grid;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 0;
+}
+.ag-courses_item {
+  height: max-content;
+    width: 400px;
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+
+  margin: 0 15px 30px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+.ag-courses-item_link {
+  display: block;
+  padding: 30px 20px;
+  background-color: #121212;
+
+  overflow: hidden;
+
+  position: relative;
+}
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+  text-decoration: none;
+  color: #FFF;
+}
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.ag-courses-item_title {
+  min-height: 87px;
+  margin: 0 0 25px;
+
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date-box {
+  font-size: 18px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date {
+  font-weight: bold;
+  color: #f9b234;
+
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease
+}
+.ag-courses-item_bg {
+  height: 228px;
+  width: 228px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s cubic-bezier(0, 1.14, 0.26, 1.43);
+}
+.red { background-color: #cb4343; } 
+        .green { background-color: #45ea45; }
+        .aliceblue { background-color: rgb(218, 235, 88); }
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+  background-color: #3ecd5e;
+}
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+  background-color: #e44002;
+}
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+  background-color: #952aff;
+}
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+  background-color: #cd3e94;
+}
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+  background-color: #4c49ea;
+}
+.ap-tx {
+  min-height: 87px;
+  margin: 0 0 25px;
+
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+
+
+
+@media only screen and (max-width: 979px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+
+}
+@media only screen and (max-width: 639px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .ag-courses-item_title {
+    min-height: 72px;
+    line-height: 1;
+
+    font-size: 24px;
+  }
+  .ag-courses-item_link {
+    padding: 22px 40px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
+
+.search-container {
+            width: 100%;
+            text-align: center;
+        }
+        .search-container input {
+
+          text-align: center;
+          border-radius: 20px;
+            width: 500px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+/* CSS */
+.button-85 {
+  font-size: 28px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+ .button-85:before {
+  
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+   
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000,
+    #48ff00,
+    #00ffd5
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 7s cubic-bezier(0.89, -0.59, 0.17, 1.29);
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+    width: 0px;
+  }
+  50% {
+    background-position: 400% 0;
+   
+  }
+  100% {
+    background-position: 0 0;
+    
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 575.98px) {
+    html{
+      margin-left: 10%;
+    } 
+
+    .search-container input {
+
+text-align: center;
+border-radius: 20px;
+  width: 280px;
+  padding: 10px;
+  font-size: 16px;
+}
+.ag-courses_item {
+  height: max-content;
+    width: 300px;
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+
+  margin: 0 15px 30px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+.ap-tx {
+  min-height: 87px;
+  margin: 0 0 25px;
+
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: inherit;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+  
+  }
+
+    
+  footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+  }
+
+  footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+  footer a:hover {
+      text-decoration: underline;
+  }
+
+  .contact-info {
+      margin-top: 10px;
+  }
+
+  .footer-logo {
+      display: inline-block;
+      margin: 10px 0;
+      animation: spin 2s linear infinite;
+  }
+
+  .footer-logo img {
+      height: 50px;
+      width: auto;
+      animation: fadeIn 2s forwards;
+  }
+
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+
+  @keyframes spin {
+      from {
+        background-color: yellowgreen;
+        width: -webkit-fill-available;
+      }
+      to {  
+        background-color: black;
+        width: -webkit-fill-available;
+      }
+  }
+
+
+  </style>
+</head>
+<body>
+   
+  <div class="ap-box1">
+    <div class="search-container">
+      <input type="text" id="search-box" placeholder="Search by any field">
+          <p id="ap-smm" class="button-85" ></p> 
+          
+      </div>
+      <div class="ag-format-container" style="background-color: #00ffd5;">
+        <form id="myForm" role="form" method="POST" action="https://script.google.com/macros/s/AKfycbzh67J7Jh68TSBuc4QhcMnvWDzI7NP2q4D0DpzYAzFiX2owBMVk74KHZvUbWlbU9Dlr/exec" onsubmit="passData(event)">
+            
+          <div class="form-group" style="text-align: center;">
+             <label for="media">attendance <span class="required"></span></label>
+              <div id="media">
+                <div class="form-group">
+                    <label for="username"  > Date <span class="required">*</span></label>
+                    <input type="date" class="form-control" name="date" id="username"  required="required" placeholder="Hi friend, how may I call you ?">
+                    <div>
+                        <input type="radio" id="option1" name=Are_you_sure value="1" required="required" >
+                         <label for="option1">Are you sure</label>
+                        </div>
+                </div>
+                <div class="ag-courses_box" id="cards-container">
+          
+                </div>
+                
+                       
+                         </div>
+            <input type="submit" value=" ★ Send the mail !" onclick="passData(); return false;"/>
+              
+        </form>
+       
+        </div>
+      <div  style="display: ruby;">
+        
+      </div>
+  </div>
+      <script>
+          let a=0;
+
+          document.addEventListener('DOMContentLoaded', function() {
+              fetch('https://sheet2api.com/v1/IoPm1cvhRVK0/crew')
+                  .then(response => response.json())
+                  .then(data => {
+                      const cardsContainer = document.getElementById('cards-container');
+                      const searchBox = document.getElementById('search-box');
+                      let f = 0;  
+                      function createCard(row) {
+                          a=a+1;
+                         
+                           // Initial value of f - changed from const to let
+
+                       
+
+                          document.getElementById('ap-smm').innerText = 'Entire Crew '+ (a-1);
+                          if (row.ID) { 
+                              
+                           
+                            const card = document.createElement('div');
+                        card.className = 'card ' ;
+                        const ap_box=(row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+ 
+  
+                              card.innerHTML = `
+                                  <div>
+                   <input type="radio" id="option1" name=${row.Name} value="1" >
+                    <label for="option1">${row.Name}</label>
+                   </div>
+                                  <br>
+                                  <input style="display: none;" type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
+            
+                                 
+                                  
+                              ` ;
+                              if(f === 0) {  
+                   if (a == 6) {  // Check if a equals 6
+                          a = a - 1;  // Subtract 1 from a
+                       f = 1;  // Reassign f to 1 (exit loop condition)
+                        }
+                       }
+                             console.log(ap_box);
+                              const checkbox = card.querySelector('input[type="checkbox"]');
+  checkbox.addEventListener('change', function() {
+      const updatedValue = checkbox.checked ? 1 : 0;
+      
+  card.className = 'card ' + (row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
+  
+      
+      console.log('Updating ID:', row.ID, 'with checked value:', updatedValue);
+      fetch(`https://sheetdb.io/api/v1/58f61be4dda40/ID/${row.ID}`, {
+      method: 'PATCH',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          data: {
+              'name': "Emma"
+          }
+      })
+  })
+  
+  
+  
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Data updated:', data);
+      })
+      .catch(error => {
+          console.error('Error updating data:', error);
+          alert('Uh oh! Looks like you IP is not registered in our database');
+      });
+  });
+  
+  
+                              cardsContainer.appendChild(card);
+                          }
+                      }
+                      
+  
+                      function filterCards(searchTerm) {
+                          cardsContainer.innerHTML = '';
+                          a=0
+                          data.forEach(row => {
+
+                              const searchString = `${row.Name} ${row.Course} ${row.ID} ${row.Year} ${row.email} ${row.subject} ${row["Phone number"]} ${row.message} ${row.media_option}`.toLowerCase();
+                              if (searchString.includes(searchTerm.toLowerCase())) {
+                                  createCard(row);
+                              }
+                          });
+                      }
+  
+                      data.forEach(createCard);
+  
+                      searchBox.addEventListener('input', function() {
+                          filterCards(searchBox.value);
+                          
+                      });
+                  })
+                  .catch(error => {
+                      console.error('Error fetching data:', error);
+                      alert('An error occurred while fetching the data. Please check the API endpoint and try again.');
+                  });
+          });
+      
+          
+      </script>
+
+<footer>
+  <div class="footer-logo">
+      <img src="./images/logo.png" alt="Team Logo">
+  </div>
+  <p>&copy; 2025 GARUD Team. All rights reserved.</p>
+  <p>
+      <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
+      <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
+  </p>
+  <div class="contact-info">
+      <p>Contact Person: Umair Qureshi</p>
+      <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
+      <p>Phone: +91 96348 53979</p>
+      <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
+Bareilly, Uttar Pradesh Pin - 243 123, India</p>
+  </div>
+  <p>Website made by <a href="https://www.instagram.com/ankit2pandey">Ankit2Pandey</a></p>
+</footer>
+
+  
+</body>
+</html>
