@@ -103,9 +103,9 @@ body {
   -o-transition: all .5s ease;
   transition: all .5s cubic-bezier(0, 1.14, 0.26, 1.43);
 }
-.red { background-color: #cb4343; } 
+.red { background-color: #dd2525f1; } 
         .green { background-color: #45ea45; }
-        .aliceblue { background-color: rgb(218, 235, 88); }
+        .aliceblue { background-color: rgb(217, 224, 16); }
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
   background-color: #3ecd5e;
 }
@@ -355,6 +355,19 @@ border-radius: 20px;
         width: -webkit-fill-available;
       }
   }
+   
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
 
 
   </style>
@@ -381,9 +394,18 @@ border-radius: 20px;
                          <label for="option1">Are you sure</label>
                         </div>
                 </div>
-                <div class="ag-courses_box" id="cards-container">
-          
-                </div>
+                <table id="cards-container">
+                  <tr>
+                    <th>true</th>
+                    <th>id</th>
+                    <th>name</th>
+                  </tr>
+                  
+                  </div>
+                
+                  
+                </table>
+                
                 
                        
                          </div>
@@ -417,17 +439,18 @@ border-radius: 20px;
                           if (row.ID) { 
                               
                            
-                            const card = document.createElement('div');
-                        card.className = 'card ' ;
+                            const card = document.createElement('tr');
+                      
                         const ap_box=(row.checked == 0 ? 'red' : (row.checked == 1 ? 'aliceblue' : 'green'));
  
   
                               card.innerHTML = `
-                                  <div>
-                   <input type="radio" id="option1" name=${row.Name} value="1" >
-                    <label for="option1">${row.Name}</label>
-                   </div>
-                                  <br>
+                                
+                    <td><input type="checkbox" id="option1" name=${row.Name} value="1" ></td>
+                    <td>${row.ID}</td>
+                    <td><label for="option1">${row.Name}</label></td>
+                  
+                                 
                                   <input style="display: none;" type="checkbox" ${row.checked === 1 ? 'checked' : ''}>
             
                                  
@@ -474,7 +497,7 @@ border-radius: 20px;
       })
       .catch(error => {
           console.error('Error updating data:', error);
-          alert('Uh oh! Looks like you IP is not registered in our database');
+
       });
   });
   
