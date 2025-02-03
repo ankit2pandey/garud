@@ -355,8 +355,19 @@ border-radius: 20px;
         width: -webkit-fill-available;
       }
   }
-
-
+  .blinking-point {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            animation: blink 5s infinite;
+        }
+  @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0;
+            height: auto;
+              }
+        }
   </style>
 </head>
 <body>
@@ -376,6 +387,7 @@ border-radius: 20px;
         
       </div>
   </div>
+
       <script>
           let a=0;
 
@@ -406,9 +418,11 @@ border-radius: 20px;
 
                                     <div class="ag-courses_item">
         <a class="ag-courses-item_link">
+          
           <divc class="ag-courses-item_bg ${ap_box}" ></divc>
-  
+           
           <div class="ag-courses-item_title">
+            ${row.po}
             ${row.Designation}
           </div>
              <div class="ap-tx">
