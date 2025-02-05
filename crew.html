@@ -356,18 +356,31 @@ border-radius: 20px;
       }
   }
   .blinking-point {
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            border-radius: 50%;
-            animation: blink 5s infinite;
+            
+            
+    animation: glow 1s linear(1.22 -22.43%, -0.4 98.9%) infinite alternate;
+            
         }
   @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0;
+            0%, 100% { opacity: 1;
+              
+  color: #df1616;
+
+  }
+            50% { color: #f70707;
             height: auto;
               }
         }
+
+        @-webkit-keyframes glow {
+  from {
+   color: red;  }
+  
+  to {
+    
+    text-shadow: 0 0 20px #e90505, 0 0 30px #e90c0c, 0 0 40px #f20606, 0 0 50px #f00808, 0 0 60px #e90707, 0 0 70px #f30707, 0 0 80px #f10909;
+  }
+}
   </style>
 </head>
 <body>
@@ -402,8 +415,8 @@ border-radius: 20px;
                           a=a+1;
                          
                            // Initial value of f - changed from const to let
-
-                       
+                           
+                           
 
                           document.getElementById('ap-smm').innerText = 'Entire Crew '+ (a-1);
                           if (row.ID) { 
@@ -416,16 +429,16 @@ border-radius: 20px;
   
                               card.innerHTML = `
 
-                                    <div class="ag-courses_item">
+                                    <div class="ag-courses_item ">
         <a class="ag-courses-item_link">
           
           <divc class="ag-courses-item_bg ${ap_box}" ></divc>
            
-          <div class="ag-courses-item_title">
-            ${row.po}
+          <div class="ag-courses-item_title ${row.po}">
+            
             ${row.Designation}
           </div>
-             <div class="ap-tx">
+             <div class="ap-tx ${row.po}">
                                   <h2>${row.Name}</h2>
                                   <p><strong>Course:</strong> ${row.Course}</p>
                                   <p><strong>ID:</strong> ${row.ID}</p>
