@@ -6,6 +6,7 @@
 <html lang="en">
   <head style="overflow: hidden;">
   	<title>Register</title>
+      
     <link rel="icon" href="./images/logo.png" type="image/icon type">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,6 +22,11 @@
     <script>
       function passData(event) {
     event.preventDefault();
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            console.log(`Name: ${name}`);
+            console.log(`Email: ${email}`);
+            console.log(`Message: ${message}`)
     
     const statusMessage = document.getElementById('ap-smm');
     const modal = document.getElementById('modal');
@@ -111,7 +117,7 @@
                 </div>
             </div>
 
-              <form id="myForm" role="form" method="POST" action="https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec" onsubmit="passData(event)">
+              <form onsubmit="passData(event)" id="myForm" role="form" method="POST" action="https://script.google.com/macros/s/AKfycbziWl0LECH81TC5z9ZeEIWReumbwQV8m5QaHoqBLdi6EdOLND-RYRVtc9DEw45UvQn-gQ/exec" onsubmit="passData(event)">
                   <div class="form-group">
                       <label for="username"  > Name <span class="required">*</span></label>
                       <input type="text" class="form-control" name="Name" id="username"  required="required" placeholder="Hi friend, how may I call you ?">
@@ -126,11 +132,11 @@
               </div>
               <div class="form-group">
                 <label for="subject"  > Year <span class="required">*</span></label>
-                <input type="text" class="form-control" name="Year" id="subject"  required="required" placeholder="Year">
+                <input type="text" class="form-control" id="message" name="Year" id="subject"  required="required" placeholder="Year">
             </div>
                   <div class="form-group">
                       <label for="usermail" > E-mail address <span class="required">*</span></label> 
-                      <input type="email" class="form-control" name="email" id="usermail" placeholder="I promise I hate spam as much as you do" required="required">
+                      <input type="email" class="form-control" id="email" name="email" id="usermail" placeholder="I promise I hate spam as much as you do" required="required">
                   </div>
                 
                   
@@ -183,7 +189,7 @@
         <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
 Bareilly, Uttar Pradesh Pin - 243 123, India</p>
     </div>
-    <p>Website made by <a href="https://www.instagram.com/ankit2pandey">Ankit2Pandey</a></p>
+    <p>Website made by <a href="https://www.instagram.com/ankit pandey ,riya rawat sanpreet">ankit pandey ,riya rawat sanpreet</a></p>
 </footer>
    
 
