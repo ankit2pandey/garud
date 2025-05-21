@@ -1,151 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title>About</title>
-    <link rel="icon" href="./images/logo.png" type="image/icon type">
+<head>
+    <title>About</title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/teams/team-2/assets/css/team-2.css">
-	
-	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="about.css">
-   
-    <script>
-   document.addEventListener('DOMContentLoaded', (event) => { let currentIndex = 0; const slides = document.querySelector('.slides'); const totalSlides = slides ? slides.children.length : 0; function showNextSlide() { currentIndex++; if (currentIndex >= totalSlides) { currentIndex = 0; } const offset = -currentIndex * 100 + '%'; if (slides) { slides.style.transform = `translateX(${offset})`; } } if (totalSlides > 0) { setInterval(showNextSlide, 3000); } });
-                </script>
-
-
-	</head>
-	<body style="background-color: black;">
-	
-	<div class="page">
-    <nav id="colorlib-main-nav" role="navigation">
-      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
-      <div class="js-fullheight colorlib-table">
-        
-        <div class="colorlib-table-cell js-fullheight">
-          <div class="row no-gutters">
-            <div class="col-md-12 text-center">  
-              <h1 class="mb-4"> 
-                <a href="index.html" class="logo" id="ap_logo1">
-                   <img src="/images/logo.png" alt="Garud Logo" /></a> 
-                  </h1>
-              <ul>
-                <li ><a href="index.html"><span>Home</span></a></li>
-                <li ><a href="404.html"><span>media</span></a></li>
-                <li class="active"><a href="about.html"><span>About us</span></a></li>
-                <li><a href="https://www.invertisuniversity.ac.in/about-invertis/overview"><span>About Invertis</span></a></li>
-                <li ><a href="presidential.html"><span>presidential team </span></a></li>
-                <li ><a href="crew.html"><span>crew</span></a></li>
-                <li ><a href="garage.html"><span>garage</span></a></li>
-                <li><a href="login.html"><span>Login</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <!-- External Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <div id="colorlib-page">
-      <header>
-      	<div class="container">
-	        <div class="colorlib-navbar-brand">
-            <div class="colorlib-navbar-brand">
-              <a class="colorlib-logo" href="index.html"> <img src="images/logo.png" alt="Garud Logo" class="logo-image" /> </a>
+    <!-- Bootstrap & External Stylesheets -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/teams/team-2/assets/css/team-2.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="about.css">
+
+    <!-- JavaScript for Slider -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.querySelector(".slides");
+            let index = 0;
+            const totalImages = slider.children.length;
+
+            function nextSlide() {
+                index = (index + 1) % totalImages;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        });
+    </script>
+</head>
+<body style="background-color: black;">
+
+    <!-- Navigation -->
+    <div class="page">
+        <nav id="colorlib-main-nav">
+            <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+            <div class="colorlib-table">
+                <div class="colorlib-table-cell">
+                    <div class="row no-gutters">
+                        <div class="col-md-12 text-center">
+                            <h1 class="mb-4">
+                                <a href="index.html" class="logo">
+                                    <img src="/images/logo.png" alt="Garud Logo">
+                                </a>
+                            </h1>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="404.html">Media</a></li>
+                                <li class="active"><a href="about.html">About Us</a></li>
+                                <li><a href="https://www.invertisuniversity.ac.in/about-invertis/overview">About Invertis</a></li>
+                                <li><a href="presidential.html">Presidential Team</a></li>
+                                <li><a href="crew.html">Crew</a></li>
+                                <li><a href="garage.html">Garage</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-	        </div>
-	        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        </nav>
+
+        <!-- Header -->
+        <div id="colorlib-page">
+            <header>
+                <div class="container">
+                    <div class="colorlib-navbar-brand">
+                        <a class="colorlib-logo" href="index.html">
+                            <img src="images/logo.png" alt="Garud Logo" class="logo-image">
+                        </a>
+                    </div>
+                    <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+                </div>
+            </header>
         </div>
-      </header>
     </div>
-  </div>
-  <div class="slider">
-     <div class="slides __web-inspector-hide-shortcut__" style="transform: translateX(-100%);">
-       <img src="./images/about1.jpg" alt="Image 1">
-        <img src="./images/about2.jpg" alt="Image 2">
-         <img src="./images/about3.jpg" alt="Image 3">
-         <img src="./images/about3.jpg" alt="Image 4">
-         <img src="./images/about2.jpg" alt="Image 5">
-         </div>
-         </div>
 
-  <div class="about-box1">
-    <section class="py-3 py-md-5 py-xl-8">
-        <div class="container">
-          <div class="row justify-content-md-center">
-            <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6" style="
-    margin-top: 60px;
-">
-              <h2 class="fs-6 text-secondary mb-2 text-uppercase text-center">Our Team</h2>
-              <p class="display-5 mb-4 mb-md-5 text-center">what is formula student?</p>
-              <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
-            </div>
-          </div>
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="./images/about1.jpg" alt="Image 1">
+            <img src="./images/about2.jpg" alt="Image 2">
+            <img src="./images/about3.jpg" alt="Image 3">
+            <img src="./images/about3.jpg" alt="Image 4">
+            <img src="./images/about2.jpg" alt="Image 5">
         </div>
+    </div>
 
-
-       
-
-          <div class="ap-box">
-            <p class="ap1">A Formula Student club is a student-led organization, usually at universities, where students design, build, and compete with a small, formula-style race car in international engineering competitions. These clubs provide hands-on experience in engineering, project management, teamwork, and innovation.
-             </p>
-              
-              <p class="ap-text"> Here’s how it works:<p class="ap1"></p>
-              
-              
-              <p class="ap1">
-              1. Design and Build: Students apply what they learn in class to design and construct a functional race car, focusing on areas like aerodynamics, mechanics, electronics, and materials.
-              <br>
-              <br>
-              2. Interdisciplinary Collaboration: Members from various fields (engineering, business, design, etc.) contribute, ensuring the car is technically sound and financially viable.
-              <br>
-              <br>
-              3. Competitions: The club participates in Formula Student or Formula SAE events worldwide, where their car is judged on performance, cost efficiency, design, and other factors.
-              <br>
-              <br>
-              4. Skill Development: Beyond technical skills, members gain experience in leadership, problem-solving, and communication.
-              <br>
-              <br>
-              
-              Formula Student clubs are not just about racing; they prepare students for real-world challenges and careers in engineering, motorsports, and beyond, making learning exciting and impactful.
-              <br>
-              <br>
-            
-            
-            </p>
-          </div>
-
-          <footer>
-            <div class="footer-logo">
-                <img src="./images/logo.png" alt="Team Logo">
+    <!-- About Section -->
+    <div class="about-box1">
+        <section class="py-3 py-md-5 py-xl-8">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6" style="margin-top: 60px;">
+                        <h2 class="fs-6 text-secondary mb-2 text-uppercase text-center">Our Team</h2>
+                        <p class="display-5 mb-4 mb-md-5 text-center">What is Formula Student?</p>
+                        <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+                    </div>
+                </div>
             </div>
-            <p>&copy; 2025 GARUD Team. All rights reserved.</p>
-            <p>
-                <a href="https://www.yourprivacypolicyurl.com">Privacy Policy</a> |
-                <a href="https://www.yourtermsandconditionsurl.com">Terms & Conditions</a>
-            </p>
-            <div class="contact-info">
-                <p>Contact Person: Umair Qureshi</p>
-                <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
-                <p>Phone: +91 96348 53979</p>
-                <p>Address:Invertis Village, Delhi Lucknow Highway NH-24,
-Bareilly, Uttar Pradesh Pin - 243 123, India</p>
-            </div>
-            <p>Website made by <a href="https://www.instagram.com/ankit pandey , riya rawat , sanpreet kaur">ankit pandey , riya rawat , sanpreet kaur</a></p>
-        </footer>
-         
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+        </section>
+    </div>
 
-	</body>
+    <!-- Formula Student Explanation -->
+    <div class="ap-box">
+        <p class="ap1">
+            A Formula Student club is a student-led organization, typically found in universities, where students design, build, and compete with a small, formula-style race car in international engineering competitions. These clubs offer hands-on experience in engineering, project management, teamwork, and innovation.
+        </p>
+        <p class="ap-text">Here’s how it works:</p>
+        <p class="ap1">
+            1. <strong>Design and Build:</strong> Students apply classroom knowledge to design and construct a functional race car, focusing on aerodynamics, mechanics, electronics, and materials.
+            <br><br>
+            2. <strong>Interdisciplinary Collaboration:</strong> Members from various fields—engineering, business, design, etc.—work together to ensure the car is both technically sound and financially viable.
+            <br><br>
+            3. <strong>Competitions:</strong> The club participates in Formula Student or Formula SAE events worldwide, where their car is evaluated based on performance, cost efficiency, design, and other factors.
+            <br><br>
+            4. <strong>Skill Development:</strong> Beyond technical expertise, members gain valuable experience in leadership, problem-solving, and communication.
+            <br><br>
+            Formula Student clubs go beyond racing; they prepare students for real-world challenges and careers in engineering, motorsports, and beyond, making learning both exciting and impactful.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="./images/logo.png" alt="Team Logo">
+        </div>
+        <p>&copy; 2025 GARUD Team. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </p>
+        <div class="contact-info">
+            <p>Contact Person: Umair Qureshi</p>
+            <p>Email: <a href="mailto:Uq18032@gmail.com">Uq18032@gmail.com</a></p>
+            <p>Phone: +91 96348 53979</p>
+            <p>Address: Invertis Village, Delhi Lucknow Highway NH-24, Bareilly, Uttar Pradesh, India</p>
+        </div>
+        <p>Website made by <a href="#">Ankit Pandey, Riya Rawat, Sanpreet Kaur</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
 </html>
-
